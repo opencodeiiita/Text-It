@@ -60,10 +60,15 @@ An example is provided for your reference.-->
             <name>Mansa Mahendru</name>
             <github_id>Hannah2k23</github_id>
         </participant>
-            <participant>
-                <name> Sahul Kumar</name>
-                <github_id>InnocentSinner08</github_id>
-            </participant>
+            
+        <participant>
+            <name> Sahul Kumar</name>
+            <github_id>InnocentSinner08</github_id>
+        </participant>
         
+        <participant>
+            <name>Kushal Bansal</name>
+            <github_id>kushal7201</github_id>
+        </participant>
     </item>
 </resources>

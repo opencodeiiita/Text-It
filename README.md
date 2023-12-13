@@ -43,7 +43,7 @@ We welcome your contributions. Please follow the below guidelines while contribu
 ## 🗒️Guidlines 
 Please help us follow the best practice to make it easy for the reviewer as well as the contributor. We want to focus on the code quality more than on managing pull request ethics.
 
-- Reference the issue numbers in the commit message if it resolves an open issue. Follow the pattern given in [PR_TEMPLATE.md](https://github.com/opencodeiiita/GeekHaven-Community-App/blob/master/PR_TEMPLATE.md)
+- Reference the issue numbers in the commit message if it resolves an open issue. Follow the pattern given in [PR_TEMPLATE.md](https://github.com/opencodeiiita/Text-It/blob/master/PR_TEMPLATE.md)
 
 - Provide the relevant screenshot for easier review.
 
@@ -59,9 +59,3 @@ Whether you are working on a new feature or facing a doubt please feel free to a
 - [Set your commit email address in Git.](https://help.github.com/articles/setting-your-commit-email-address-in-git)
 - [Firebase official Documentation](https://firebase.google.com/docs)
 - [Kotlin official Documentation](https://kotlinlang.org/docs/home.html)
-
-- Do not make PR which is not related to any issues. You can create an issue and solve it once we approve them.
-
-- Avoid duplicate PRs, if need be comment on the older PR with the PR number of the follow-up (new PR) and close the obsolete PR yourself.
-
-- Be polite to other community members.

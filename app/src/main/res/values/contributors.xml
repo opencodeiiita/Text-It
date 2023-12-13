@@ -23,10 +23,20 @@ An example is provided for your reference.-->
             <name>Gaurav Chhetri</name>
             <github_id>Muffinboy19</github_id>
         </participant>
+
         <participant> 
             <name>Krishay Nair</name>
             <github_id>KrishayNair</github_id>
         </participant>
+
+
+        <participant>
+            <name>Jai Khanna</name>
+            <github_id>CodinJack</github_id>
+        </participant>
+        
+        <participant>
+
             <name>Govinda Rohith </name>
             <github_id>GovindaRohith</github_id>
         
@@ -35,6 +45,21 @@ An example is provided for your reference.-->
             <name>Arin Kulkarni</name>
             <github_id>akoolarni<github_id>
         </participant>
+        
+        <participant>
+            <name>Aditya Reddy</name>
+            <github_id>illum1nadi<github_id>
+        </participant>
 
+        <participant>
+            <name>Veerathu Sri Sindhu</name>
+            <github_id>Sindhu194</github_id>
+        </participant>
+
+        <participant>
+            <name>Mansa Mahendru</name>
+            <github_id>Hannah2k23</github_id>
+        </participant>
+        
     </item>
 </resources>

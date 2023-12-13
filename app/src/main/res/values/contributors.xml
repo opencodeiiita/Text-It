@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Hello contributors!!!
+welcome to your first task
+This file contains the list of all the Participants who participated in contributing to Text-it
+Add your name in this file in the following format-
+    <participant>
+        <name>Participant Name</name>
+        <github_id>GitHub User ID</github_id>
+    </participant>
+all the participants information must be inside the participant item.
+An example is provided for your reference.-->
+<resources>
+
+    <item name="participant" type="string">
+        <participant>
+            <name>Ishant Kumawat</name>
+            <github_id>insanecoder02</github_id>
+        </participant>
+
+        <participant>
+            <name>Gaurav Chhetri</name>
+            <github_id>Muffinboy19</github_id>
+        </participant>
+
+    </item>
+</resources>

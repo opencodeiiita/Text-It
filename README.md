@@ -9,7 +9,7 @@
 * Kotlin
 * Firebase
 
-## Requirements
+## 🚀Requirements
 - Android Studio Giraffe | 2022.3.1
 - SDK Version: '>=2.18.0 <3.10.0'
 

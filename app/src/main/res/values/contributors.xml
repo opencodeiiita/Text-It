@@ -11,6 +11,12 @@ Add your name in this file in the following format-
     </participant>
 all the participants information must be inside the participant item.
 An example is provided for your reference.-->
+
+<participant>
+    <name>Apoorv Mittal</name>
+    <github_id>Apoorv012</github_id>
+</participant>
+
 <resources>
 
     <item name="participant" type="string">

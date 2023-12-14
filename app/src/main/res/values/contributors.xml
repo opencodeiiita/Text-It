@@ -108,7 +108,12 @@ An example is provided for your reference.-->
         <participant>
             <name>Tejas Sharma</name>
             <github_id>Tej-as1</github_id>
-        </participant>  
-                    
+       </participant>
+
+       <participant>
+	       <name>Raj Kariya</name>
+	       <github_id>raj-kariya</github_id>
+       </partcipant>       
+
     </item>
-</resources>
+    </resources>

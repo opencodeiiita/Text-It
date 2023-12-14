@@ -81,19 +81,18 @@ An example is provided for your reference.-->
         </participant>
 
         <participant>
+            <name>Harshal Gainer</name>
+            <github_id>Harshal5167</github_id>
+        </participant>
+              
+        <participant>
             <name>C Karthik Reddy</name>
             <github_id>TheDivineAurora</github_id>
         </participant>
-              
-         
-        
-              
-              
-              
-              
-              
-              
-              
+        <participant>
+            <name>Sushmitha</name>
+            <github_id>imsushmitha-13</github_id>
+        </participant>
               
               
         <participant>
@@ -101,8 +100,6 @@ An example is provided for your reference.-->
             <github_id>illum1nadi</github_id>
         </participant>    
                     
-
-
         <participant>
             <name> Dikshant Khandelwal </name>
             <github_id> DikshantK2004  </github_id>

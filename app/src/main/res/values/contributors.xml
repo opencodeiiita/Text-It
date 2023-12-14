@@ -189,7 +189,10 @@ An example is provided for your reference.-->
          <name>Agatsya Narayanan</name>
          <github_id>Agatsya0494</github_id>
     </participant>
-		
+        <participant>
+            <name>Jay sharma</name>
+            <github_id>Jaysharma100</github_id>
+        </participant>	
 
     </item>
 </resources>

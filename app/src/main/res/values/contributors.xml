@@ -110,5 +110,10 @@ An example is provided for your reference.-->
             <github_id>Tej-as1</github_id>
         </participant>  
                     
+        <participant>
+            <name>Nitu Sherawat</name>
+            <github_id>Nitu-Sherawat</github_id>
+        </participant>
+
     </item>
 </resources>

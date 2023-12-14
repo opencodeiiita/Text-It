@@ -78,5 +78,11 @@ An example is provided for your reference.-->
             <name>C Karthik Reddy</name>
             <github_id>TheDivineAurora</github_id>
         </participant>
+
+            <participant>
+            <name>Monu Kumar Singh</name>
+            <github_id>MonuGit9</github_id>
+        </participant>
+            
     </item>
 </resources>

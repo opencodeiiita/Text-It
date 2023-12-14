@@ -14,6 +14,10 @@ An example is provided for your reference.-->
 <resources>
 
     <item name="participant" type="string">
+	<participant>
+            <name>Sagnik Mandal</name>
+            <github_id>criticic</github_id>
+        </participant>
         <participant>
             <name>Ishant Kumawat</name>
             <github_id>insanecoder02</github_id>
@@ -138,6 +142,27 @@ An example is provided for your reference.-->
             <name>CRudresh Dabre</name>
             <github_id>Rudreshdabre12</github_id>
         </participant>
-	    
+
+
+        <participant>
+            <name>Piyush Tiwari</name>
+            <github_id>Piyush-Raj-Tiwari</github_id>
+        </participant>
+
+
+	     <participant>
+            <name>Apoorv Mittal</name>
+            <github_id>Apoorv012</github_id>
+        </participant>
+
+	    <participant>
+	   	<name>Shubham Gupta</name>
+		<github_id>Shubham Gupta</github_id>
+	</participant> 
+	<participant>
+            <name>Aryan Yadav</name>
+            <github_id>aryan0931</github_id>
+        </participant>
+
     </item>
 </resources>

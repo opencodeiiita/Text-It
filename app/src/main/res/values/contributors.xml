@@ -36,10 +36,8 @@ An example is provided for your reference.-->
             <name>Krishay Nair</name>
             <github_id>KrishayNair</github_id>
         </participant>
-	<participant> 
-            <name>Aryan Raj</name>
-            <github_id>Aryan4884</github_id>
-        </participant>
+
+
         <participant>
             <name>Jai Khanna</name>
             <github_id>CodinJack</github_id>
@@ -177,7 +175,6 @@ An example is provided for your reference.-->
             <github_id>aryan0931</github_id>
         </participant>
 
-
         <participant>
         <name>Aditi Gupta</name>
         <github_id>AditiGupta976</github_id>
@@ -187,13 +184,12 @@ An example is provided for your reference.-->
             <name>Parth Kansagra</name>
             <github_id>parth_1egend</github_id>
         </participant>
+
+	<participant>
+         <name>Agatsya Narayanan</name>
+         <github_id>Agatsya0494</github_id>
+    </participant>
 		
-            <participant>
-		    <name>Vasu Singla</name>
-		    <github_id>vasusingla545</github_id>
-	    </participant>
-
-
 
     </item>
 </resources>

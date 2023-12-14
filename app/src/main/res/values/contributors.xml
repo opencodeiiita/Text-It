@@ -138,6 +138,10 @@ An example is provided for your reference.-->
             <name>Apoorv Mittal</name>
             <github_id>Apoorv012</github_id>
         </participant>
+	<participant>
+		<name>Shubham Gupta</name>
+		<github_id>Shubham Gupta</github_id>
+	</participant>
 
     </item>
 </resources>

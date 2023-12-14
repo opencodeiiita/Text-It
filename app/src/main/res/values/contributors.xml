@@ -89,20 +89,29 @@ An example is provided for your reference.-->
             <name>C Karthik Reddy</name>
             <github_id>TheDivineAurora</github_id>
         </participant>
+
         <participant>
             <name>Sushmitha</name>
             <github_id>imsushmitha-13</github_id>
         </participant>
-              
-              
+                
         <participant>
             <name>Aditya Reddy</name>
             <github_id>illum1nadi</github_id>
+        </participant> 
+
+        <participant>
+            <name>Pranav Bansal</name>
+            <github_id>PranavBansal21</github_id>
         </participant>    
 
         <participant>
             <name>Dikshant Khandelwal</name>
             <github_id>DikshantK2004</github_id>
         </participant>  
+            <name>Tejas Sharma</name>
+            <github_id>Tej-as1</github_id>
+        </participant>  
+                    
     </item>
 </resources>

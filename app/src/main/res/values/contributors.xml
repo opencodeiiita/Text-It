@@ -99,6 +99,11 @@ An example is provided for your reference.-->
             <name>Aditya Reddy</name>
             <github_id>illum1nadi</github_id>
         </participant>    
+
+        <participant>
+            <name>Tejas Sharma</name>
+            <github_id>Tej-as1</github_id>
+        </participant>  
                     
     </item>
 </resources>

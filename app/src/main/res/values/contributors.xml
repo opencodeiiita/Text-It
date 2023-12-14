@@ -113,10 +113,12 @@ An example is provided for your reference.-->
             <github_id>Tej-as1</github_id>
         </participant>  
 
-        <participant>
-            <name>Aditya Arya</name>
-            <github_id>arya-007</github_id>
-        </participant>  
+
+	     <participant>
+	         <name>Anushka Pandit</name>
+	         <github_id>anushkp1107</github_id>
+	     </participant>
+
                     
         <participant>
             <name>Nitu Sherawat</name>

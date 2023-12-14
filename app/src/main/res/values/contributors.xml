@@ -139,5 +139,9 @@ An example is provided for your reference.-->
             <github_id>Apoorv012</github_id>
         </participant>
 
+	<participant>
+            <name>Aniketh Pala</name>
+            <github_id>Aniketh4</github_id>
+        </participant>
     </item>
 </resources>

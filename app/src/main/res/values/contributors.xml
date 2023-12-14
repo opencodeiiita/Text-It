@@ -138,20 +138,25 @@ An example is provided for your reference.-->
             <github_id>chiragmalik2612</github_id>
         </participant>
 
-	<participant>
+
+        <participant>
+            <name>Piyush Tiwari</name>
+            <github_id>Piyush-Raj-Tiwari</github_id>
+        </participant>
+
+
+	     <participant>
             <name>Apoorv Mittal</name>
             <github_id>Apoorv012</github_id>
         </participant>
 
-	<participant>
-		<name>Shubham Gupta</name>
+	    <participant>
+	   	<name>Shubham Gupta</name>
 		<github_id>Shubham Gupta</github_id>
 	</participant> 
 	<participant>
             <name>Aryan Yadav</name>
             <github_id>aryan0931</github_id>
         </participant>
-
-
     </item>
 </resources>

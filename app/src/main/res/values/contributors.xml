@@ -23,6 +23,10 @@ An example is provided for your reference.-->
             <name>Gaurav Chhetri</name>
             <github_id>Muffinboy19</github_id>
         </participant>
+         <participant>
+            <name>Anshika Bhardwaj</name>
+            <github_id>AnshikaSwirl</github_id>
+        </participant>
 
         <participant> 
             <name>Krishay Nair</name>
@@ -75,7 +79,9 @@ An example is provided for your reference.-->
             <name>Kushal Bansal</name>
             <github_id>kushal7201</github_id>
         </participant>
-            
-            
+        <participant>
+            <name>C Karthik Reddy</name>
+            <github_id>TheDivineAurora</github_id>
+        </participant>
     </item>
 </resources>

@@ -111,9 +111,80 @@ An example is provided for your reference.-->
        </participant>
 
        <participant>
+            <name>Sarthak Verma</name>
+            <github_id>sarthakvermaa</github_id>
+        </participant>      
+
+	     <participant>
+	         <name>Anushka Pandit</name>
+	         <github_id>anushkp1107</github_id>
+	     </participant>
+
+                    
+        <participant>
+            <name>Nitu Sherawat</name>
+            <github_id>Nitu-Sherawat</github_id>
+        </participant>
+        
+        <participant>
+            <name>Shrutika Rathi</name>
+            <github_id>shrutikarathi6</github_id>
+        </participant>
+
+        <participant>
+            <name>Chirag Malik</name>
+            <github_id>chiragmalik2612</github_id>
+        </participant>
+
+
+         <participant>
+            <name>Ajay Kumar</name>
+            <github_id>ajay484</github_id>
+        </partcipant>
+
+	    <participant>
+            <name>CRudresh Dabre</name>
+            <github_id>Rudreshdabre12</github_id>
+        </participant>
+
+
+        <participant>
+            <name>Piyush Tiwari</name>
+            <github_id>Piyush-Raj-Tiwari</github_id>
+        </participant>
+
+
+	     <participant>
+            <name>Apoorv Mittal</name>
+            <github_id>Apoorv012</github_id>
+
+        </participant>
+
+	    <participant>
+	   	    <name>Shubham Gupta</name>
+		    <github_id>Shubham Gupta</github_id>
+	    </participant> 
+	
+        <participant>
+            <name>Aryan Yadav</name>
+            <github_id>aryan0931</github_id>
+        </participant>
+
+        <participant>
+            <name>Aditi Gupta</name>
+            <github_id>AditiGupta976</github_id>
+        </participant>
+
+	    <participant>
+            <name>Parth Kansagra</name>
+            <github_id>parth_1egend</github_id>
+        </participant>      
+
+        <participant>
 	       <name>Raj Kariya</name>
 	       <github_id>raj-kariya</github_id>
-       </partcipant>       
+       </partcipant>
+
 
     </item>
-    </resources>
+</resources>

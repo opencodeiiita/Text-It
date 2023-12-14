@@ -70,5 +70,10 @@ An example is provided for your reference.-->
             <name>Kushal Bansal</name>
             <github_id>kushal7201</github_id>
         </participant>
+
+        <participant>
+            <name>Sarthak Verma</name>
+            <github_id>sarthakvermaa</github_id>
+        </participant>
     </item>
 </resources>

@@ -106,21 +106,37 @@ An example is provided for your reference.-->
         </participant>    
 
         <participant>
+            <name>Dikshant Khandelwal</name>
+            <github_id>DikshantK2004</github_id>
+        </participant>  
             <name>Tejas Sharma</name>
             <github_id>Tej-as1</github_id>
         </participant>  
-
-
-
-
-
-
-
-
 
         <participant>
             <name>Sarthak Verma</name>
             <github_id>sarthakvermaa</github_id>
         </participant>      
+
+	     <participant>
+	         <name>Anushka Pandit</name>
+	         <github_id>anushkp1107</github_id>
+	     </participant>
+
+                    
+        <participant>
+            <name>Nitu Sherawat</name>
+            <github_id>Nitu-Sherawat</github_id>
+        </participant>
+        <participant>
+            <name>Shrutika Rathi</name>
+            <github_id>shrutikarathi6</github_id>
+        </participant>
+
+        <participant>
+            <name>Chirag Malik</name>
+            <github_id>chiragmalik2612</github_id>
+        </participant>
+
     </item>
 </resources>

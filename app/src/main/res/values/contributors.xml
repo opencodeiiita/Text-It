@@ -152,6 +152,11 @@ An example is provided for your reference.-->
             <github_id>aryan0931</github_id>
         </participant>
 
+	    <participant>
+		    <name>Vasu Singla</name>
+		    <github_id>vasusingla545</github_id>
+	    </participant>
+
 
     </item>
 </resources>

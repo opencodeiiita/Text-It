@@ -134,5 +134,10 @@ An example is provided for your reference.-->
             <github_id>chiragmalik2612</github_id>
         </participant>
 
+        participant>
+            <name>Rudresh Dabre</name>
+            <github_id>Rudreshdabre12</github_id>
+        </participant>
+
     </item>
 </resources>

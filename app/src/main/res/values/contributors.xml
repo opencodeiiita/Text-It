@@ -36,8 +36,10 @@ An example is provided for your reference.-->
             <name>Krishay Nair</name>
             <github_id>KrishayNair</github_id>
         </participant>
-
-
+	<participant> 
+            <name>Aryan Raj</name>
+            <github_id>Aryan4884</github_id>
+        </participant>
         <participant>
             <name>Jai Khanna</name>
             <github_id>CodinJack</github_id>

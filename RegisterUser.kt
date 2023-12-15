@@ -1,13 +1,15 @@
-import com.google.firebase.database.FirebaseDatabase
+data class User(val username: String, val password: String)
 
 class RegisterUser {
 
-    private val database = FirebaseDatabase.getInstance().reference
+    private val users = mutableListOf<User>()
 
     fun register(username: String, password: String): Boolean {
-        // Firebase registration logic
-        val userReference = database.child("users").child(username)
-        userReference.setValue(User(username, password))
-        return true
+        // Local registration logic
+        if (users.none { it.username == username }) {
+            users.add(User(username, password))
+            return true
+        }
+        return false
     }
 }

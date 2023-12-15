@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.Textit" parent="Base.Theme.Textit" />
+    <style name="SplashScreenTheme" parent="Theme.Material3.DayNight.NoActionBar">
+
+    </style>
 </resources>

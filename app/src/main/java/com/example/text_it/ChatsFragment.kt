@@ -1,0 +1,1 @@
+class ChatsFragment : Fragment(R.layout.fragment_chats)

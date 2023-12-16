@@ -12,24 +12,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Textit"
         tools:targetApi="31">
-
+        <activity
+            android:name=".LoginUser"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterUser"
+            android:exported="false" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashScreenTheme"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:exported="true"
+            android:theme="@style/SplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
-        <!-- MainActivity (duplicate declaration) -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- MainActivity (duplicate declaration) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar">
-
-        </activity> <!-- Additional Activity -->
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar" /> <!-- Additional Activity -->
         <activity android:name=".NextActivity" />
     </application>
 

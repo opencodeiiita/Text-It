@@ -17,12 +17,23 @@
         android:textSize="28sp"
         android:textStyle="bold" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ic_launcher_background" />
+
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewTitle"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="125dp"
         android:hint="Name"
         android:inputType="textPersonName" />
 

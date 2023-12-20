@@ -2,7 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+=======
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+>>>>>>> 2388c31f66236466dcc2c5c02dfd82227feb9411
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"

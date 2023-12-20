@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Text-it"
+rootProject.name = "meme"
 include(":app")
  

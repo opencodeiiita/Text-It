@@ -7,7 +7,7 @@ This file contains the list of all the Participants who participated in contribu
 Add your name in this file in the following format-
     <participant>
         <name>Participant Name</name>
-        <github_id>GitHub User ID</github_id>
+        <github_id>GitHub com.example.text_it.Classes.User ID</github_id>
     </participant>
 all the participants information must be inside the participant item.
 An example is provided for your reference.-->

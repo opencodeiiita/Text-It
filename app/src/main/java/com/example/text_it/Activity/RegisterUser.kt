@@ -1,4 +1,4 @@
-package com.example.text_it
+package com.example.text_it.Activity
 
 import android.content.ContentResolver
 import android.content.Intent
@@ -7,14 +7,17 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.text_it.R
 
 class RegisterUser : AppCompatActivity() {
     companion object {
         private const val SELECT_IMAGE_REQUEST = 1
     }
+
     private lateinit var imageView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,12 +29,29 @@ class RegisterUser : AppCompatActivity() {
         imageView.setOnClickListener {
             openImagePicker()
         }
+
+        val loginBut: Button = findViewById(R.id.buttonLogin)
+        val regBut: Button = findViewById(R.id.buttonRegister)
+
+        loginBut.setOnClickListener {
+            startActivity(
+                Intent(
+                    this, LoginUser::class.java
+                )
+            )
+        }
+        regBut.setOnClickListener {
+//            implement the logic of registering the user using firebase
+
+        }
     }
+
     private fun openImagePicker() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, SELECT_IMAGE_REQUEST)
 
     }
+
     private fun adjustImageViewSize(imageView: ImageView, bitmap: Bitmap) {
         val targetWidth = imageView.width
         val aspectRatio = bitmap.width.toFloat() / bitmap.height.toFloat()
@@ -42,6 +62,7 @@ class RegisterUser : AppCompatActivity() {
         imageView.scaleType =
             ImageView.ScaleType.FIT_XY
     }
+
     private fun getBitmapFromUri(uri: Uri): Bitmap? {
         return try {
             val contentResolver: ContentResolver = contentResolver
@@ -52,6 +73,7 @@ class RegisterUser : AppCompatActivity() {
             null
         }
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK && requestCode == SELECT_IMAGE_REQUEST) {

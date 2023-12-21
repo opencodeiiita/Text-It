@@ -1,4 +1,4 @@
-package com.example.meme
+package com.example.text_it
 
 import org.junit.Test
 

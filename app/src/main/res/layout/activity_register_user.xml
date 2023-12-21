@@ -16,7 +16,8 @@
         android:padding="20dp"
         android:layout_margin="10dp"
         android:src="@drawable/baseline_arrow_back_24"
-        android:background="#00000000" />
+        android:background="#00000000"
+        android:id="@+id/backButton"/>
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -160,9 +161,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="Create an account"
+        android:textColor="#ffffff"
         android:textSize="16sp"
         android:fontFamily="@font/poppins_bold"
         app:backgroundTint="@null"
-        android:background="@drawable/stylized_button" />
+        android:background="@drawable/stylized_gradient_button" />
 
 </RelativeLayout>

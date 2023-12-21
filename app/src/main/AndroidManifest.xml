@@ -18,6 +18,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.LandingUser"
+            android:exported="false" />
+        <activity
             android:name=".Activity.LoginUser"
             android:exported="false" />
         <activity

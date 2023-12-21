@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    tools:context=".Activity.LoginUser">
+
+    <TextView
+        android:id="@+id/textViewHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins"
+        android:lineHeight="80dp"
+        android:text="Connect \nfriends \neasily &amp; \nquickly"
+        android:textColor="#ffffff"
+        android:textSize="70sp" />
+
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewHeader"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/poppins"
+        android:lineHeight="25sp"
+        android:text="Our chat app is the perfect way to stay connected with friends and family."
+        android:textColor="#80ffffff"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/socialButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDescription"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/btnGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stylized_circle"
+            android:src="@drawable/google" />
+
+        <ImageButton
+            android:id="@+id/btnFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/stylized_circle"
+            android:src="@drawable/facebook" />
+
+        <ImageButton
+            android:id="@+id/btnApple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/stylized_circle"
+            android:src="@drawable/apple" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/socialButtons"
+        android:id="@+id/orLayout"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp">
+
+        <View
+            android:layout_width="135dp"
+            android:layout_height="1dp"
+            android:background="#33ffffff"
+            />
+
+        <TextView
+            android:id="@+id/orText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="OR"
+            android:layout_centerInParent="true"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+        <View
+            android:layout_width="135dp"
+            android:layout_height="1dp"
+            android:background="#33ffffff" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/orLayout"
+        android:layout_marginTop="45dp"
+        android:background="@drawable/stylized_button"
+        android:fontFamily="@font/poppins"
+        android:text="Sign up with email"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:id="@+id/signupButton"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/signupButton"
+        android:layout_marginTop="25dp"
+        android:layout_centerInParent="true"
+        android:clickable="true"
+        android:id="@+id/loginLayout">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Already have an account?"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:layout_marginRight="5dp"
+            android:id="@+id/textViewAlreadyHaveAnAccount"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAlreadyHaveAnAccount"
+            android:fontFamily="@font/poppins_bold"
+            android:layout_marginLeft="5dp"
+            android:text="Log in"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:id="@+id/textViewLogin"/>
+    </LinearLayout>
+</RelativeLayout>

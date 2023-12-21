@@ -37,6 +37,10 @@
             android:name=".Activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

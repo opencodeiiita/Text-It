@@ -4,91 +4,165 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".Activity.RegisterUser">
+    android:padding="20dp"
+    tools:context=".Activity.RegisterUser"
+    >
+
+    <ImageButton
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="20dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        android:background="#00000000" />
 
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:text="Register"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="135dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Sign up with Email"
+        android:textColor="#3D4A7A"
+        android:textFontWeight="700"
+        android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:scaleType="centerCrop"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/ic_launcher_background" />
-
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewTitle"
-        android:layout_marginTop="125dp"
-        android:hint="Name"
-        android:inputType="textPersonName" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins"
+        android:text="Get chatting with friends and family\n today by signing up for our chat app!"
+        android:textAlignment="center"
+        android:textColor="#797C7B"
+        android:textFontWeight="300"
+        android:textSize="14sp"
+        android:id="@+id/textViewDescription"/>
 
-    <EditText
-        android:id="@+id/editTextEmail"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextName"
-        android:layout_marginTop="16dp"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:layout_below="@id/textViewDescription"
+        android:id="@+id/linearLayoutName"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextPassword"
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Name"
+            android:textColor="#3D4A7A"
+            android:textFontWeight="500"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:inputType="textPersonName" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextEmail"
-        android:layout_marginTop="16dp"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        android:layout_below="@id/linearLayoutName"
+        android:id="@+id/linearLayoutEmail"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editTextConfirmPassword"
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Email"
+            android:textColor="#3D4A7A"
+            android:textFontWeight="500"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:inputType="textEmailAddress" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginTop="16dp"
-        android:hint="Confirm Password"
-        android:inputType="textPassword" />
+        android:layout_below="@id/linearLayoutEmail"
+        android:id="@+id/linearLayoutPassword"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Password"
+            android:textColor="#3D4A7A"
+            android:textFontWeight="500"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutPassword"
+        android:id="@+id/linearLayoutConfirmPassword"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewConfirmPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Confirm Password"
+            android:textColor="#3D4A7A"
+            android:textFontWeight="500"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/editTextConfirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:inputType="textPassword" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextConfirmPassword"
-        android:layout_marginTop="24dp"
-        android:text="Register" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_below="@id/buttonRegister"
-        android:text="OR"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonRegister"
-        android:layout_marginTop="50dp"
-        android:text="Login" />
+        android:layout_alignParentBottom="true"
+        android:text="Create an account"
+        android:textSize="16sp"
+        android:fontFamily="@font/poppins_bold"
+        app:backgroundTint="@null"
+        android:background="@drawable/stylized_button" />
 
 </RelativeLayout>

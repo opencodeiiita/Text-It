@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Text-it</string>
+	<string name="ek_img_content">ExportKit Image</string>
+	<string name="message_string">Message</string>
+	<string name="calls_string">Calls</string>
+	<string name="contacts_string">Contacts</string>
+	<string name="settings_string">Settings</string>
 </resources>

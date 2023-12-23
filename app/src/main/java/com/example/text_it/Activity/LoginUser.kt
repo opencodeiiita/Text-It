@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import com.example.text_it.R
 
@@ -13,18 +14,15 @@ class LoginUser : AppCompatActivity() {
         setContentView(R.layout.activity_login_user)
 
         val loginBut: Button = findViewById(R.id.buttonLogin)
-        val regBut: Button = findViewById(R.id.buttonRegister)
+        val backBut: ImageButton = findViewById(R.id.backButton)
 
-        regBut.setOnClickListener {
-            startActivity(
-                Intent(
-                    this, RegisterUser::class.java
-                )
-            )
-        }
 
         loginBut.setOnClickListener {
 //            implement the logic for logging in the user using firebase
+        }
+
+        backBut.setOnClickListener {
+            finish()
         }
     }
 }

@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".Activity.RegisterUser"
-    >
+    tools:context=".Activity.RegisterUser">
 
     <ImageButton
+        android:id="@+id/backButton"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:padding="20dp"
-        android:layout_margin="10dp"
-        android:src="@drawable/baseline_arrow_back_24"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#00000000"
-        android:id="@+id/backButton"/>
+        android:padding="20dp"
+        android:src="@drawable/baseline_arrow_back_24" />
 
     <TextView
         android:id="@+id/textViewTitle"
@@ -32,6 +34,7 @@
         android:textSize="18sp" />
 
     <TextView
+        android:id="@+id/textViewDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewTitle"
@@ -43,9 +46,7 @@
         android:textAlignment="center"
         android:textColor="#797C7B"
         android:textFontWeight="300"
-        android:textSize="14sp"
-        android:id="@+id/textViewDescription"/>
-
+        android:textSize="14sp" />
 
 
     <LinearLayout
@@ -85,30 +86,29 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/orLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/socialButtons"
-        android:id="@+id/orLayout"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <View
             android:layout_width="135dp"
             android:layout_height="1dp"
-            android:background="#797C7B"
-            />
+            android:background="#797C7B" />
 
         <TextView
             android:id="@+id/orText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:fontFamily="@font/poppins_bold"
             android:text="OR"
-            android:layout_centerInParent="true"
             android:textColor="#797C7B"
             android:textSize="15sp" />
 
@@ -120,10 +120,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayoutEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linearLayoutName"
-        android:id="@+id/linearLayoutEmail"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="335dp"
         android:orientation="vertical">
@@ -142,15 +141,15 @@
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayoutPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearLayoutEmail"
-        android:id="@+id/linearLayoutPassword"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
         android:orientation="vertical">
@@ -169,8 +168,8 @@
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <Button
@@ -193,12 +192,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
         android:fontFamily="@font/poppins"
         android:text="Forgot Password?"
         android:textColor="#3D4A7A"
-        android:textFontWeight="1200"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

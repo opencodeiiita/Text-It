@@ -18,7 +18,12 @@ class LoginUser : AppCompatActivity() {
 
 
         loginBut.setOnClickListener {
-//            implement the logic for logging in the user using firebase
+            startActivity(
+                Intent(
+                    this@LoginUser,
+                    MainActivity::class.java
+                )
+            )
         }
 
         backBut.setOnClickListener {

@@ -1,6 +1,7 @@
 package com.example.text_it.Activity
 
 
+import android.graphics.Color
 import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -43,6 +44,7 @@ class landingActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var oneTapClient: SignInClient
     private lateinit var signInRequest: BeginSignInRequest
+
     private lateinit var callbackManager: CallbackManager
 
 
@@ -69,6 +71,12 @@ class landingActivity : AppCompatActivity() {
         callbackManager = CallbackManager.Factory.create()
 
         auth = Firebase.auth
+        oneTapClient = Identity.getSignInClient(this)
+    window.setFlags(
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+    )
+
 
         LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult) {
@@ -114,9 +122,7 @@ class landingActivity : AppCompatActivity() {
         val signupButton: Button = findViewById(R.id.signupButton)
         val loginButton: TextView = findViewById(R.id.textViewLogin)
         val googleButton: ImageButton = findViewById(R.id.btnGoogle)
-
-
-
+        
         val launcher = registerForActivityResult<IntentSenderRequest, ActivityResult>(
             ActivityResultContracts.StartIntentSenderForResult()
         ) { result: ActivityResult ->
@@ -141,7 +147,7 @@ class landingActivity : AppCompatActivity() {
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         startActivity(
-                                            android.content.Intent(
+                                            Intent(
                                                 this@landingActivity,
                                                 MainActivity::class.java
                                             )
@@ -157,12 +163,9 @@ class landingActivity : AppCompatActivity() {
                                 })
                     }
                 } catch (e: ApiException) {
-                    //
                 }
             }
         }
-
-        // google auth logic
         googleButton.setOnClickListener {
             signInRequest = BeginSignInRequest.builder()
                 .setGoogleIdTokenRequestOptions(

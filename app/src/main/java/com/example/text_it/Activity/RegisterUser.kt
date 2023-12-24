@@ -18,7 +18,7 @@ class RegisterUser : AppCompatActivity() {
         backButton.setOnClickListener {
             startActivity(
                 Intent(
-                    this, LandingUser::class.java
+                    this, landingActivity::class.java
                 )
             )
         }

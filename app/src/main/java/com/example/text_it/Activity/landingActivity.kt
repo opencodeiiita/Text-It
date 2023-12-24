@@ -37,7 +37,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class LandingUser : AppCompatActivity() {
+class landingActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var oneTapClient: SignInClient
@@ -78,14 +78,14 @@ class LandingUser : AppCompatActivity() {
             }
 
             override fun onCancel() {
-                Toast.makeText(this@LandingUser, "Login Cancel", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@landingActivity, "Login Cancel", Toast.LENGTH_SHORT).show()
                 Log.d("cancel", "Lets go")
                 Firebase.auth.signOut()
 
             }
 
             override fun onError(error: FacebookException) {
-                Toast.makeText(this@LandingUser, error.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@landingActivity, error.message, Toast.LENGTH_LONG).show()
                 Log.e(TAG, "Its definitely an error")
             }
         })
@@ -98,7 +98,7 @@ class LandingUser : AppCompatActivity() {
 
         btnFbLogin.setOnClickListener {
             LoginManager.getInstance()
-                .logInWithReadPermissions(this@LandingUser, listOf("email", "public_profile"))
+                .logInWithReadPermissions(this@landingActivity, listOf("email", "public_profile"))
         }
 
 
@@ -130,13 +130,13 @@ class LandingUser : AppCompatActivity() {
                                         Log.d(TAG, "signInWithCredential:success")
                                         val user: FirebaseUser? = auth.currentUser
                                         Toast.makeText(
-                                            this@LandingUser,
+                                            this@landingActivity,
                                             "Authentication Success.",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         startActivity(
                                             android.content.Intent(
-                                                this@LandingUser,
+                                                this@landingActivity,
                                                 MainActivity::class.java
                                             )
                                         )
@@ -151,7 +151,7 @@ class LandingUser : AppCompatActivity() {
                                 })
                     }
                 } catch (e: ApiException) {
-                //
+                    //
                 }
             }
         }
@@ -169,7 +169,7 @@ class LandingUser : AppCompatActivity() {
                 .setAutoSelectEnabled(true)
                 .build()
             oneTapClient.beginSignIn(signInRequest)
-                .addOnSuccessListener(this@LandingUser,
+                .addOnSuccessListener(this@landingActivity,
                     OnSuccessListener<BeginSignInResult> { result ->
                         launcher.launch(
                             IntentSenderRequest.Builder(
@@ -177,7 +177,7 @@ class LandingUser : AppCompatActivity() {
                             ).build()
                         )
                     })
-                .addOnFailureListener(this@LandingUser,
+                .addOnFailureListener(this@landingActivity,
                     OnFailureListener { e -> // No Google Accounts found. Just continue presenting the signed-out UI.
                         Log.d(TAG, e.localizedMessage)
                     })

@@ -35,7 +35,7 @@
         </activity>
 
         <activity
-            android:name=".Activity.LandingUser"
+            android:name=".Activity.landingActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.LoginUser"

@@ -21,13 +21,6 @@
             android:padding="20dp"
             app:tint="@color/white"
             android:src="@drawable/baseline_arrow_back_24"/>
-<!--        <de.hdodenhof.circleimageview.CircleImageView-->
-<!--            android:layout_width="90dp"-->
-<!--            android:layout_height="90dp"-->
-<!--            android:src="@drawable/person"-->
-<!--            android:layout_marginTop="55dp"-->
-<!--            android:layout_centerHorizontal="true"-->
-<!--            android:id="@+id/profileAvatar"/>-->
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="90dp"
             android:layout_height="90dp"
@@ -213,13 +206,35 @@
                     android:src="@drawable/person"
                     app:shapeAppearance="@style/squircle"
                     android:scaleType="centerCrop"  />
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_height="100dp"
-                    android:layout_width="100dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/person"
-                    app:shapeAppearance="@style/squircle"
-                    android:scaleType="centerCrop" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp">
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_height="100dp"
+                        android:layout_width="100dp"
+                        android:src="@drawable/person"
+                        app:shapeAppearance="@style/squircle"
+                        android:scaleType="centerCrop"
+                        android:foregroundTint="@color/black"
+                        android:foregroundTintMode="src_atop"/>
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="#80000000"
+                        app:shapeAppearance="@style/squircle"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="255+"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"/>
+
+                </RelativeLayout>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

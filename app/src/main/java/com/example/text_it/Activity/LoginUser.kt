@@ -12,6 +12,12 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.text_it.R
+import com.facebook.AccessToken
+import com.facebook.CallbackManager
+import com.facebook.FacebookCallback
+import com.facebook.FacebookException
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.BeginSignInResult
 import com.google.android.gms.auth.api.identity.Identity
@@ -21,6 +27,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -33,9 +40,66 @@ class LoginUser : AppCompatActivity() {
     private lateinit var oneTapClient: SignInClient
     private lateinit var signInRequest: BeginSignInRequest
 
+    private lateinit var callbackManager: CallbackManager
+
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+
+        if(currentUser != null)
+        {
+            startActivity(
+                android.content.Intent(
+                    this, MainActivity::class.java
+                )
+            )
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        callbackManager = CallbackManager.Factory.create()
+
+        auth = Firebase.auth
+
+        LoginManager.getInstance().registerCallback(callbackManager, object :
+            FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult) {
+                Log.d("Success", "Success")
+
+                handleFacebookAccessToken(result.accessToken)
+
+            }
+
+            override fun onCancel() {
+                Toast.makeText(this@LoginUser, "Login Cancel", Toast.LENGTH_SHORT).show()
+                Log.d("cancel", "Lets go")
+                Firebase.auth.signOut()
+
+            }
+
+            override fun onError(error: FacebookException) {
+                Toast.makeText(this@LoginUser, error.message, Toast.LENGTH_LONG).show()
+                Log.e(ContentValues.TAG, "Its definitely an error")
+            }
+        })
+
+
         setContentView(R.layout.activity_login_user)
+
+
+
+        val btnFbLogin:ImageButton = findViewById<ImageButton>(R.id.btnFacebook)
+
+        btnFbLogin.setOnClickListener {
+            LoginManager.getInstance()
+                .logInWithReadPermissions(this@LoginUser, listOf("email", "public_profile"))
+        }
+
 
         val loginBut: Button = findViewById(R.id.buttonLogin)
         val backBut: ImageButton = findViewById(R.id.backButton)
@@ -128,5 +192,41 @@ class LoginUser : AppCompatActivity() {
         backBut.setOnClickListener {
             finish()
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+    }
+    private fun handleFacebookAccessToken(token: AccessToken) {
+
+        val tak = token.token
+        Log.d(ContentValues.TAG, "handleFacebookAccessToken:$tak")
+
+        val credential = FacebookAuthProvider.getCredential(token.token)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                    Log.d(ContentValues.TAG, "signInWithCredential:success")
+                    val user = auth.currentUser
+
+                    startActivity(
+                        android.content.Intent(
+                            this, MainActivity::class.java
+                        )
+                    )
+//
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w(ContentValues.TAG, "signInWithCredential:failure", task.exception)
+                    Toast.makeText(
+                        baseContext,
+                        "Authentication failed.",
+                        Toast.LENGTH_SHORT,
+                    ).show()
+//                    updateUI(null)
+                }
+            }
     }
 }

@@ -6,6 +6,7 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -92,6 +93,11 @@ class landingActivity : AppCompatActivity() {
 
 
         setContentView(R.layout.activity_landing_user)
+
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
 
 
         val btnFbLogin:ImageButton = findViewById<ImageButton>(R.id.btnFacebook)

@@ -36,13 +36,13 @@
 
         <activity
             android:name=".Activity.page1"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.LoginUser"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.RegisterUser"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".Activity.SplashActivity"
             android:exported="true"

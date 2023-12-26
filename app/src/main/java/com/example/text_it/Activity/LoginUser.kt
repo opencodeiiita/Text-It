@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
@@ -29,8 +30,11 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.actionCodeSettings
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
@@ -41,6 +45,8 @@ class LoginUser : AppCompatActivity() {
     private lateinit var signInRequest: BeginSignInRequest
 
     private lateinit var callbackManager: CallbackManager
+    private lateinit var email: EditText
+    private lateinit var password: EditText
 
 
     public override fun onStart() {
@@ -61,10 +67,12 @@ class LoginUser : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_login_user)
         callbackManager = CallbackManager.Factory.create()
 
         auth = Firebase.auth
+        email = findViewById(R.id.editTextEmail)
+        password = findViewById(R.id.editTextPassword)
 
         LoginManager.getInstance().registerCallback(callbackManager, object :
             FacebookCallback<LoginResult> {
@@ -88,8 +96,6 @@ class LoginUser : AppCompatActivity() {
             }
         })
 
-
-        setContentView(R.layout.activity_login_user)
 
 
 
@@ -179,15 +185,65 @@ class LoginUser : AppCompatActivity() {
                     })
         }
 
-
         loginBut.setOnClickListener {
-            startActivity(
-                Intent(
-                    this@LoginUser,
-                    baseHomeActivity::class.java
-                )
-            )
+            val emailStr = email.text.toString()
+            val passwordStr = password.text.toString()
+            var doLogin = true
+            if (emailStr == "" || passwordStr == "") {
+                Toast.makeText(
+                    baseContext, "Please fill in all fields",
+                    Toast.LENGTH_SHORT
+                ).show()
+                doLogin = false
+            }
+
+            if(doLogin) {
+                auth.signInWithEmailAndPassword(emailStr, passwordStr)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(ContentValues.TAG, "signInWithEmail:success")
+                            val verify = auth.currentUser?.isEmailVerified
+                            if(verify==true){
+                                val user = auth.currentUser
+                                startActivity(
+                                    android.content.Intent(
+                                        this, baseHomeActivity::class.java
+                                    )
+                                )
+                            }
+                            else{
+                                Toast.makeText(this,"Please verify your email!",Toast.LENGTH_SHORT).show()
+                            }
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(ContentValues.TAG, "signInWithEmail:failure", task.exception)
+                            if (task.exception is FirebaseAuthInvalidCredentialsException) {
+                                Toast.makeText(
+                                    baseContext,
+                                    "Incorrect Email or password!",
+                                    Toast.LENGTH_SHORT,
+                                ).show()
+
+                            } else {
+                                Toast.makeText(
+                                    baseContext,
+                                    "Authentication failed!",
+                                    Toast.LENGTH_SHORT,
+                                ).show()
+                                startActivity(
+                                    android.content.Intent(
+                                        this, RegisterUser::class.java
+                                    )
+                                )
+                            }
+                        }
+                    }
+            }
+
         }
+
 
         backBut.setOnClickListener {
             finish()

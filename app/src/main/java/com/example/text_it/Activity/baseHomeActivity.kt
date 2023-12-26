@@ -2,10 +2,9 @@ package com.example.text_it.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Message
 import androidx.fragment.app.Fragment
 import com.example.text_it.Call
-import com.example.text_it.Contact
+import com.example.text_it.ContactFragment
 import com.example.text_it.MessageFragment
 import com.example.text_it.R
 import com.example.text_it.Setting
@@ -34,7 +33,7 @@ class baseHomeActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.message -> replaceFragment(MessageFragment())
                 R.id.call -> replaceFragment(Call())
-                R.id.contact -> replaceFragment(Contact())
+                R.id.contact -> replaceFragment(ContactFragment())
                 R.id.setting -> replaceFragment(Setting())
             }
             true

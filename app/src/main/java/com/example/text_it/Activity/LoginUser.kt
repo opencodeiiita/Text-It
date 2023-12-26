@@ -52,7 +52,7 @@ class LoginUser : AppCompatActivity() {
         {
             startActivity(
                 android.content.Intent(
-                    this, MainActivity::class.java
+                    this, baseHomeActivity::class.java
                 )
             )
         }
@@ -134,7 +134,7 @@ class LoginUser : AppCompatActivity() {
                                         startActivity(
                                             Intent(
                                                 this@LoginUser,
-                                                MainActivity::class.java
+                                                baseHomeActivity::class.java
                                             )
                                         )
                                     } else {
@@ -184,7 +184,7 @@ class LoginUser : AppCompatActivity() {
             startActivity(
                 Intent(
                     this@LoginUser,
-                    MainActivity::class.java
+                    baseHomeActivity::class.java
                 )
             )
         }
@@ -213,7 +213,7 @@ class LoginUser : AppCompatActivity() {
 
                     startActivity(
                         android.content.Intent(
-                            this, MainActivity::class.java
+                            this, baseHomeActivity::class.java
                         )
                     )
 //

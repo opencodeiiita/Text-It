@@ -18,7 +18,7 @@ class RegisterUser : AppCompatActivity() {
         backButton.setOnClickListener {
             startActivity(
                 Intent(
-                    this, landingActivity::class.java
+                    this, page1::class.java
                 )
             )
         }
@@ -26,7 +26,7 @@ class RegisterUser : AppCompatActivity() {
         regBut.setOnClickListener {
             startActivity(
                 Intent(
-                    this@RegisterUser, MainActivity::class.java
+                    this@RegisterUser, baseHomeActivity::class.java
                 )
             )
         }

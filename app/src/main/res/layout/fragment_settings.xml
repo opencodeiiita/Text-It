@@ -245,7 +245,7 @@
                     android:layout_marginStart="64dp"
                     android:layout_marginBottom="24dp"
                     android:fontFamily="@font/poppins"
-                    android:text="Messages, group & other"
+                    android:text="Messages, group &amp; other"
                     android:textColor="#000e08"
                     android:textFontWeight="300"
                     android:textSize="14sp"

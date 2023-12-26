@@ -1,15 +1,23 @@
 package com.example.text_it
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.imageview.ShapeableImageView
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.FirebaseFirestore
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+data class Status(
+    val statusPhoto: String = "",
+    val statusUploadTime: Timestamp? = null,
+    val username: String = ""
+)
 
 /**
  * A simple [Fragment] subclass.
@@ -18,15 +26,16 @@ private const val ARG_PARAM2 = "param2"
  */
 class Message : Fragment() {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private lateinit var db: FirebaseFirestore
+    private lateinit var statusAdapter: StatusAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
+        initFirestore()
+        statusAdapter = StatusAdapter(mutableListOf())
+        setupRecyclerView()
+        getStatusFromFirestore()
     }
 
     override fun onCreateView(
@@ -37,23 +46,59 @@ class Message : Fragment() {
         return inflater.inflate(R.layout.fragment_message, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Message.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Message().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+    private fun initFirestore() {
+        db = FirebaseFirestore.getInstance()
+    }
+
+    private fun setupRecyclerView() {
+        // val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
+        // recyclerView.adapter = statusAdapter
+    }
+
+    private fun getStatusFromFirestore() {
+        db.collection("status").get()
+            .addOnSuccessListener { documents ->
+                val statusList = mutableListOf<Status>()
+
+                for (document in documents) {
+                    val status = document.toObject(Status::class.java)
+                    statusList.add(status)
                 }
+
+                updateAdapterWithStatusList(statusList)
             }
+            .addOnFailureListener { exception ->
+                Log.w(ContentValues.TAG, "Error getting documents: ", exception)
+            }
+    }
+
+    private fun updateAdapterWithStatusList(statusList: List<Status>) {
+        statusAdapter.setStatusList(statusList)
+    }
+}
+
+
+class StatusAdapter(private var dataSet: MutableList<Status>) :
+    RecyclerView.Adapter<StatusAdapter.ViewHolder>() {
+
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.fragment_status_bar, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    }
+
+    override fun getItemCount(): Int = dataSet.size
+
+    fun setStatusList(newList: List<Status>) {
+        dataSet.clear()
+        dataSet.addAll(newList)
+        notifyDataSetChanged()
     }
 }

@@ -62,6 +62,13 @@ class RegisterUser : AppCompatActivity() {
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             Log.d(TAG, "createUserWithEmail:success")
+                            auth.currentUser?.sendEmailVerification()
+                                ?.addOnSuccessListener {
+                                    Toast.makeText(this,"Please Verify Your Email",Toast.LENGTH_SHORT).show()
+                                }
+                                ?.addOnFailureListener{
+                                    Toast.makeText(this,it.toString(),Toast.LENGTH_SHORT).show()
+                                }
                         }
                     }
                     .addOnFailureListener(this) { exception ->

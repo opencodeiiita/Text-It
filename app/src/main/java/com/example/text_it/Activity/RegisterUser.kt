@@ -41,9 +41,9 @@ class RegisterUser : AppCompatActivity() {
         }
 
         regBut.setOnClickListener {
-            var doLogin = false
-            if (password.text.toString() == confirmPassword.text.toString()) {
-                doLogin = true
+            var doLogin = true
+            if (password.text.toString() != confirmPassword.text.toString()) {
+                doLogin = false
             } else {
                 Toast.makeText(
                     baseContext, "Passwords do not match",

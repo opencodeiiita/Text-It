@@ -1,10 +1,7 @@
 <resources>
     <string name="app_name">Text-it</string>
     <string name="web_client_id">432704450552-ej2bs6kt9p6lirl6rclt1jj7tg31le36.apps.googleusercontent.com</string>
-
     <string name="facebook_app_id">907911547051338</string>
     <string name="fb_login_protocol_scheme">fb907911547051338</string>
     <string name="facebook_client_token">dab4658139df3c88053919710675c677</string>
-
-
 </resources>

@@ -2,11 +2,14 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+//    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.text_it"
     compileSdk = 34
+
+
 
     defaultConfig {
         applicationId = "com.example.text_it"

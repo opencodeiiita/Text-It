@@ -1,8 +1,6 @@
 package com.example.text_it.Activity
 
 
-import android.graphics.Color
-import android.annotation.SuppressLint
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
@@ -39,7 +37,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class landingActivity : AppCompatActivity() {
+class page1 : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var oneTapClient: SignInClient
@@ -57,7 +55,7 @@ class landingActivity : AppCompatActivity() {
         {
             startActivity(
                 android.content.Intent(
-                    this, MainActivity::class.java
+                    this, baseHomeActivity::class.java
                 )
             )
         }
@@ -87,14 +85,14 @@ class landingActivity : AppCompatActivity() {
             }
 
             override fun onCancel() {
-                Toast.makeText(this@landingActivity, "Login Cancel", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@page1, "Login Cancel", Toast.LENGTH_SHORT).show()
                 Log.d("cancel", "Lets go")
                 Firebase.auth.signOut()
 
             }
 
             override fun onError(error: FacebookException) {
-                Toast.makeText(this@landingActivity, error.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@page1, error.message, Toast.LENGTH_LONG).show()
                 Log.e(TAG, "Its definitely an error")
             }
         })
@@ -112,7 +110,7 @@ class landingActivity : AppCompatActivity() {
 
         btnFbLogin.setOnClickListener {
             LoginManager.getInstance()
-                .logInWithReadPermissions(this@landingActivity, listOf("email", "public_profile"))
+                .logInWithReadPermissions(this@page1, listOf("email", "public_profile"))
         }
 
 
@@ -142,17 +140,19 @@ class landingActivity : AppCompatActivity() {
                                         Log.d(TAG, "signInWithCredential:success")
                                         val user: FirebaseUser? = auth.currentUser
                                         Toast.makeText(
-                                            this@landingActivity,
+                                            this@page1,
                                             "Authentication Success.",
                                             Toast.LENGTH_SHORT
                                         ).show()
                                         startActivity(
                                             Intent(
-                                                this@landingActivity,
-                                                MainActivity::class.java
+                                                this@page1,
+                                                baseHomeActivity::class.java
                                             )
                                         )
                                     } else {
+                                        Toast.makeText(this, "failure",Toast.LENGTH_SHORT).show()
+
                                         // If sign in fails, display a message to the user.
                                         Log.w(
                                             TAG,
@@ -178,16 +178,19 @@ class landingActivity : AppCompatActivity() {
                 .setAutoSelectEnabled(true)
                 .build()
             oneTapClient.beginSignIn(signInRequest)
-                .addOnSuccessListener(this@landingActivity,
+                .addOnSuccessListener(this@page1,
                     OnSuccessListener<BeginSignInResult> { result ->
+                        Toast.makeText(this, "gooo",Toast.LENGTH_SHORT).show()
+
                         launcher.launch(
                             IntentSenderRequest.Builder(
                                 result.pendingIntent.intentSender
                             ).build()
                         )
                     })
-                .addOnFailureListener(this@landingActivity,
+                .addOnFailureListener(this@page1,
                     OnFailureListener { e -> // No Google Accounts found. Just continue presenting the signed-out UI.
+                        Toast.makeText(this, e.localizedMessage,Toast.LENGTH_SHORT).show()
                         Log.d(TAG, e.localizedMessage)
                     })
         }
@@ -231,7 +234,7 @@ class landingActivity : AppCompatActivity() {
 
                     startActivity(
                         android.content.Intent(
-                            this, MainActivity::class.java
+                            this, baseHomeActivity::class.java
                         )
                     )
 //

@@ -35,7 +35,7 @@
         </activity>
 
         <activity
-            android:name=".Activity.landingActivity"
+            android:name=".Activity.page1"
             android:exported="false" />
         <activity
             android:name=".Activity.LoginUser"
@@ -54,7 +54,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".Activity.baseHomeActivity"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
 

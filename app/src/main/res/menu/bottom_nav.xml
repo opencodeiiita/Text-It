@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/message"
-            android:icon="@drawable/baseline_message_24"/>
+    <item android:title="Message"
+        android:id="@+id/message"
+        android:icon="@drawable/baseline_message_24"/>
     <item android:title="Call"
         android:id="@+id/call"
         android:icon="@drawable/baseline_call_24"/>

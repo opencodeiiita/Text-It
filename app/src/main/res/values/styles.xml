@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppBottomNavigationView" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/transparent</item>
+    </style>
+</resources>

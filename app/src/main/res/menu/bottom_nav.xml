@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:title="Message"
         android:id="@+id/message"
-        android:icon="@drawable/baseline_message_24"/>
+        android:icon="@drawable/message_circle_dots_svgrepo_com"/>
     <item android:title="Call"
         android:id="@+id/call"
-        android:icon="@drawable/baseline_call_24"/>
+        android:icon="@drawable/phone_calling_rounded_svgrepo_com"/>
     <item android:title="Contact"
         android:id="@+id/contact"
-        android:icon="@drawable/notebook_of_contacts"/>
+        android:icon="@drawable/contacts_dairy_svgrepo_com"/>
     <item android:title="Setting"
         android:id="@+id/setting"
-        android:icon="@drawable/settings" />
+        android:icon="@drawable/settings_svgrepo_com" />
 </menu>

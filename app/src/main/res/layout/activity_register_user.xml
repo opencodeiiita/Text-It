@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="135dp"
+        android:layout_marginTop="75dp"
         android:fontFamily="@font/poppins_bold"
         android:text="Sign up with Email"
         android:textColor="#3D4A7A"
@@ -51,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewDescription"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="45dp"
         android:orientation="vertical">
 
         <TextView
@@ -74,10 +74,47 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayoutEmail"
+        android:id="@+id/linearLayoutPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/linearLayoutName"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textViewPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Phone"
+            android:textColor="#3D4A7A"
+            android:textFontWeight="500"
+            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/ccp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:ccp_countryPreference="us,in"
+                />
+            <EditText
+                android:id="@+id/editTextPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:singleLine="true" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayoutPhone"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="30dp"
         android:orientation="vertical">

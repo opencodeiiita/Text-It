@@ -3,6 +3,7 @@
 
     <style name="AppBottomNavigationView" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/transparent</item>
+    </style>
     <style name="roundedImageView">
         <item name="cornerFamily">rounded </item>
         <item name="cornerSize"> 50% </item>

@@ -1,4 +1,4 @@
-package com.example.text_it
+package com.example.text_it.fragment
 
 import android.content.ContentValues
 import android.os.Bundle
@@ -7,19 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.imageview.ShapeableImageView
-import com.google.firebase.Timestamp
+import com.example.text_it.R
+import com.example.text_it.adapater.StatusAdapter
+import com.example.text_it.dataClass.Status_dataclass
 import com.google.firebase.firestore.FirebaseFirestore
 
-data class Status(
-    val statusPhoto: String = "",
-    val statusUploadTime: Timestamp? = null,
-    val username: String = ""
-)
 
-class MessageFragment : Fragment() {
+
+class Message : Fragment() {
     private lateinit var db: FirebaseFirestore
     private lateinit var statusAdapter: StatusAdapter
 
@@ -53,13 +48,12 @@ class MessageFragment : Fragment() {
     private fun getStatusFromFirestore() {
         db.collection("status").get()
             .addOnSuccessListener { documents ->
-                val statusList = mutableListOf<Status>()
+                val statusList = mutableListOf<Status_dataclass>()
 
                 for (document in documents) {
-                    val status = document.toObject(Status::class.java)
+                    val status = document.toObject(Status_dataclass::class.java)
                     statusList.add(status)
                 }
-
                 updateAdapterWithStatusList(statusList)
             }
             .addOnFailureListener { exception ->
@@ -67,32 +61,7 @@ class MessageFragment : Fragment() {
             }
     }
 
-    private fun updateAdapterWithStatusList(statusList: List<Status>) {
+    private fun updateAdapterWithStatusList(statusList: List<Status_dataclass>) {
         statusAdapter.setStatusList(statusList)
-    }
-}
-
-
-class StatusAdapter(private var dataSet: MutableList<Status>) :
-    RecyclerView.Adapter<StatusAdapter.ViewHolder>() {
-
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // dummy view
-        val view = View(parent.context)
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    }
-
-    override fun getItemCount(): Int = dataSet.size
-
-    fun setStatusList(newList: List<Status>) {
-        dataSet.clear()
-        dataSet.addAll(newList)
-        notifyDataSetChanged()
     }
 }

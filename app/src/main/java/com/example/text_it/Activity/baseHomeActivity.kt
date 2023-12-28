@@ -3,14 +3,14 @@ package com.example.text_it.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-import android.os.Message
+
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import com.example.text_it.Call
-import com.example.text_it.ContactFragment
-import com.example.text_it.MessageFragment
+import com.example.text_it.fragment.Call
+import com.example.text_it.fragment.Contact
+import com.example.text_it.fragment.Message
 import com.example.text_it.R
-import com.example.text_it.Setting
+import com.example.text_it.fragment.Setting
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 // this is the activity where the bottom navigation code is there
@@ -28,7 +28,7 @@ class baseHomeActivity : AppCompatActivity() {
 
         // Set the initial fragment
         supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, MessageFragment())
+            .replace(R.id.fragmentContainer, Message())
             .commit()
 
         // Handle bottom navigation item clicks
@@ -43,9 +43,9 @@ class baseHomeActivity : AppCompatActivity() {
 //            }
 
             when (menuItem.itemId) {
-                R.id.message -> replaceFragment(MessageFragment())
+                R.id.message -> replaceFragment(Message())
                 R.id.call -> replaceFragment(Call())
-                R.id.contact -> replaceFragment(ContactFragment())
+                R.id.contact -> replaceFragment(Contact())
                 R.id.setting -> replaceFragment(Setting())
             }
 
@@ -53,9 +53,6 @@ class baseHomeActivity : AppCompatActivity() {
 
             true
         }
-
-
-
 
     }
     private fun replaceFragment(fragment: Fragment) {

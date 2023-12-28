@@ -1,4 +1,4 @@
-package com.example.text_it.Classes
+package com.example.text_it.dataClass
 
 class RegisterUser {
     var name: String? = null

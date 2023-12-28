@@ -59,5 +59,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
-
+    implementation("io.github.chaosleung:pinview:1.4.4")
+    implementation("com.hbb20:ccp:2.7.0")
 }

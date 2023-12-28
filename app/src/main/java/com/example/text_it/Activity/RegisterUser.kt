@@ -10,8 +10,14 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.text_it.R
+import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthOptions
+import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.hbb20.CountryCodePicker
+import java.util.concurrent.TimeUnit
 
 
 class RegisterUser : AppCompatActivity() {
@@ -28,9 +34,13 @@ class RegisterUser : AppCompatActivity() {
         val regBut: Button = findViewById(R.id.buttonRegister)
 
         val name: EditText = findViewById(R.id.editTextName)
+        val ccp: CountryCodePicker = findViewById(R.id.ccp)
+        val phone: EditText = findViewById(R.id.editTextPhone)
         val email: EditText = findViewById(R.id.editTextEmail)
         val password: EditText = findViewById(R.id.editTextPassword)
         val confirmPassword: EditText = findViewById(R.id.editTextConfirmPassword)
+
+        ccp.registerCarrierNumberEditText(phone)
 
         backButton.setOnClickListener {
             startActivity(
@@ -39,69 +49,79 @@ class RegisterUser : AppCompatActivity() {
                 )
             )
         }
-
         regBut.setOnClickListener {
             var doLogin = true
             if (password.text.toString() != confirmPassword.text.toString()) {
                 doLogin = false
-            } else {
                 Toast.makeText(
                     baseContext, "Passwords do not match",
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            if (name.text.toString() == "" || email.text.toString() == "" || password.text.toString() == "" || confirmPassword.text.toString() == "") {
+            if (name.text.toString() == "" || phone.toString() == "" || email.text.toString() == "" || password.text.toString() == "" || confirmPassword.text.toString() == "") {
                 Toast.makeText(
                     baseContext, "Please fill in all fields",
                     Toast.LENGTH_SHORT
                 ).show()
                 doLogin = false
             }
+            if (!ccp.isValidFullNumber) {
+                Toast.makeText(
+                    baseContext, "Please enter a valid phone number",
+                    Toast.LENGTH_SHORT
+                ).show()
+                doLogin = false
+            }
             if (doLogin) {
-                auth.createUserWithEmailAndPassword(email.text.toString(), password.text.toString())
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            Log.d(TAG, "createUserWithEmail:success")
-                            auth.currentUser?.sendEmailVerification()
-                                ?.addOnSuccessListener {
-                                    Toast.makeText(this,"Please Verify Your Email",Toast.LENGTH_SHORT).show()
-                                }
-                                ?.addOnFailureListener{
-                                    Toast.makeText(this,it.toString(),Toast.LENGTH_SHORT).show()
-                                }
-                        }
-                    }
-                    .addOnFailureListener(this) { exception ->
-                        Toast.makeText(
-                            baseContext, "Registration failed: ${exception.message}",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                val user = auth.currentUser
-                user?.updateProfile(
-                    user.let {
-                        val profileUpdates = it.displayName.let { it1 ->
-                            UserProfileChangeRequest.Builder()
-                                .setDisplayName(name.text.toString())
-                                .build()
-                        }
-                        profileUpdates
-                    }
-                )?.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        Log.d(TAG, "User profile updated.")
-                        Toast.makeText(
-                            baseContext, "User successfully registered",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        startActivity(
-                            Intent(
-                                this@RegisterUser, baseHomeActivity::class.java
+                val options = PhoneAuthOptions.newBuilder(auth)
+                    .setPhoneNumber(ccp.fullNumberWithPlus)
+                    .setTimeout(60L, TimeUnit.SECONDS)
+                    .setActivity(this)
+                    .setCallbacks(object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                        override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                            Log.d(TAG, "onVerificationCompleted:$credential")
+                            Toast.makeText(
+                                baseContext, "Verification Completed",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            startActivity(
+                                Intent(
+                                    this@RegisterUser, baseHomeActivity::class.java
+                                )
                             )
-                        )
-                    }
-                }
+                        }
+
+                        override fun onVerificationFailed(e: FirebaseException) {
+                            Log.w(TAG, "onVerificationFailed", e)
+                            Toast.makeText(
+                                baseContext, "Verification Failed",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                        override fun onCodeSent(
+                            verificationId: String,
+                            token: PhoneAuthProvider.ForceResendingToken
+                        ) {
+                            Log.d(TAG, "onCodeSent:$verificationId")
+                            Toast.makeText(
+                                baseContext, "Code Sent",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            val intent = Intent(this@RegisterUser, OTPVerification::class.java)
+                            intent.putExtra("verificationId", verificationId)
+                            intent.putExtra("phoneNumber", ccp.fullNumberWithPlus)
+                            intent.putExtra("name", name.text.toString())
+                            intent.putExtra("email", email.text.toString())
+                            intent.putExtra("password", password.text.toString())
+                            startActivity(intent)
+                        }
+                    })
+                    .build()
+                PhoneAuthProvider.verifyPhoneNumber(options)
             }
         }
+
+
     }
 }

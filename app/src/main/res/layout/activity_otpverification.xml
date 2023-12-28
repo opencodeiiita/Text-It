@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".Activity.RegisterUser">
+    <TextView
+        android:id="@+id/textViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Verify yout Phone Number"
+        android:textColor="#3D4A7A"
+        android:textFontWeight="700"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionBasic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins"
+        android:text="We have sent you an SMS with a code to"
+        android:textAlignment="center"
+        android:textColor="#797C7B"
+        android:textFontWeight="300"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/textViewPhoneNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textViewDescriptionBasic"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/poppins_bold"
+        android:textAlignment="center"
+        android:textSize="14sp" />
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewPhoneNo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/poppins"
+        android:text="*standard charges apply"
+        android:textColor="#797C7B"
+        android:textFontWeight="100"
+        android:textSize="10sp" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayoutOTP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewDescription"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewOTP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Enter OTP"
+            android:textColor="#3D4A7A"
+            android:textFontWeight="500"
+            android:textSize="14sp" />
+
+
+<!--    CENTER THE BOXES-->
+        <com.chaos.view.PinView
+            android:id="@+id/pinView"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:inputType="number"
+            android:padding="8dp"
+            android:textColor="#3D4A7A"
+            android:textSize="16sp"
+            app:cursorColor="#3D4A7A"
+            app:cursorWidth="2dp"
+            app:itemCount="6"
+            app:itemHeight="48dp"
+            app:itemRadius="10dp"
+            app:itemSpacing="6dp"
+            app:itemWidth="48dp"
+            app:lineColor="#3D4A7A"
+            app:lineWidth="2dp"
+            app:viewType="rectangle" />
+    </LinearLayout>
+    <Button
+        android:id="@+id/buttonVerify"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/stylized_gradient_button"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Verify OTP"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:backgroundTint="@null" />
+
+</RelativeLayout>

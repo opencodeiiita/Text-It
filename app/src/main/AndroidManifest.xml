@@ -20,6 +20,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.Onboarding"
+            android:exported="false" />
+        <activity
             android:name=".Activity.OTPVerification"
             android:exported="false" />
         <activity

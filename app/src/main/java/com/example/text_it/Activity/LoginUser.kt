@@ -137,12 +137,21 @@ class LoginUser : AppCompatActivity() {
                                             "Authentication Success.",
                                             Toast.LENGTH_SHORT
                                         ).show()
-                                        startActivity(
-                                            Intent(
-                                                this@LoginUser,
-                                                baseHomeActivity::class.java
+                                        if(task.result.additionalUserInfo?.isNewUser == true) {
+                                            startActivity(
+                                                Intent(
+                                                    this@LoginUser,
+                                                    Onboarding::class.java
+                                                )
                                             )
-                                        )
+                                        } else {
+                                            startActivity(
+                                                Intent(
+                                                    this@LoginUser,
+                                                    baseHomeActivity::class.java
+                                                )
+                                            )
+                                        }
                                     } else {
                                         // If sign in fails, display a message to the user.
                                         Log.w(
@@ -267,11 +276,21 @@ class LoginUser : AppCompatActivity() {
                     Log.d(ContentValues.TAG, "signInWithCredential:success")
                     val user = auth.currentUser
 
-                    startActivity(
-                        android.content.Intent(
-                            this, baseHomeActivity::class.java
+                    if(task.result.additionalUserInfo?.isNewUser == true) {
+                        startActivity(
+                            Intent(
+                                this@LoginUser,
+                                Onboarding::class.java
+                            )
                         )
-                    )
+                    } else {
+                        startActivity(
+                            Intent(
+                                this@LoginUser,
+                                baseHomeActivity::class.java
+                            )
+                        )
+                    }
 //
                 } else {
                     // If sign in fails, display a message to the user.

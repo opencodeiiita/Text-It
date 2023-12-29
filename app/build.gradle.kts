@@ -61,4 +61,5 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
     implementation("io.github.chaosleung:pinview:1.4.4")
     implementation("com.hbb20:ccp:2.7.0")
+    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
 }

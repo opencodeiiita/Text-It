@@ -63,7 +63,11 @@ class OTPVerification : AppCompatActivity() {
                     user!!.updateEmail(email)
                     user!!.updatePassword(password)
                     Toast.makeText(this, "Verification successful", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, baseHomeActivity::class.java))
+                    startActivity(
+                        Intent(
+                            this, Onboarding::class.java
+                        )
+                    )
                     finish()
                 } else {
                     Toast.makeText(this, "Verification failed", Toast.LENGTH_SHORT).show()

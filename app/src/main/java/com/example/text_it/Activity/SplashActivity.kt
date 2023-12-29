@@ -23,37 +23,29 @@ class SplashActivity : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
 
-        if (checkSelfPermission(android.Manifest.permission.CAMERA) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(
+        val iv_logo: ImageView = findViewById(R.id.iv_logo)
+        iv_logo.alpha = 0f
+
+        requestPermissions(
                 arrayOf(
                     android.Manifest.permission.CAMERA
                 ), 1
             )
-        }
 
-        val iv_logo: ImageView = findViewById(R.id.iv_logo)
-
-        iv_logo.alpha = 0f
-        iv_logo.animate().setDuration(3000).alpha(1f).withEndAction {
-            val i = Intent(this, page1::class.java)
-            startActivity(i)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-            finish()
-        }
-
-        Handler().postDelayed({
-            val i = Intent(this, page1::class.java)
-            startActivity(i)
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-            finish()
-        }, SPLASH_TIME_OUT)
     }
 
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (grantResults[0] != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+        if (grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            val iv_logo: ImageView = findViewById(R.id.iv_logo)
+            iv_logo.animate().setDuration(SPLASH_TIME_OUT).alpha(1f).withEndAction {
+                startActivity(Intent(this, page1::class.java))
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                finish()
+            }
+        } else {
             Toast.makeText(this, "Permissions not granted", Toast.LENGTH_SHORT).show()
             finish()
         }

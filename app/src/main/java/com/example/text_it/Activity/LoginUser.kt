@@ -36,6 +36,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.actionCodeSettings
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
 class LoginUser : AppCompatActivity() {
@@ -132,6 +133,14 @@ class LoginUser : AppCompatActivity() {
                                         // Sign in success, update UI with the signed-in user's information
                                         Log.d(ContentValues.TAG, "signInWithCredential:success")
                                         val user: FirebaseUser? = auth.currentUser
+                                        val db = FirebaseFirestore.getInstance()
+                                        val userMap = hashMapOf(
+                                            "name" to user?.displayName,
+                                            "email" to user?.email,
+                                            "uid" to user?.uid,
+                                            "profileImage" to ""
+                                        )
+                                        db.collection("USERS").document(user!!.uid).set(userMap)
                                         Toast.makeText(
                                             this@LoginUser,
                                             "Authentication Success.",
@@ -275,6 +284,14 @@ class LoginUser : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "signInWithCredential:success")
                     val user = auth.currentUser
+                    val db = FirebaseFirestore.getInstance()
+                    val userMap = hashMapOf(
+                        "name" to user?.displayName,
+                        "email" to user?.email,
+                        "uid" to user?.uid,
+                        "profileImage" to ""
+                    )
+                    db.collection("USERS").document(user!!.uid).set(userMap)
 
                     if(task.result.additionalUserInfo?.isNewUser == true) {
                         startActivity(

@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.firestore.FirebaseFirestore
 
 class OTPVerification : AppCompatActivity() {
 
@@ -62,6 +63,14 @@ class OTPVerification : AppCompatActivity() {
                     user!!.updateProfile(profileUpdates)
                     user!!.updateEmail(email)
                     user!!.updatePassword(password)
+                    val db = FirebaseFirestore.getInstance()
+                    val userMap = hashMapOf(
+                        "name" to name,
+                        "email" to email,
+                        "uid" to user.uid,
+                        "profileImage" to ""
+                    )
+                    db.collection("USERS").document(user.uid).set(userMap)
                     Toast.makeText(this, "Verification successful", Toast.LENGTH_SHORT).show()
                     startActivity(
                         Intent(

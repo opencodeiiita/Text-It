@@ -14,6 +14,7 @@ import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
@@ -56,6 +57,9 @@ class Onboarding : AppCompatActivity() {
                         val profileUpdates = UserProfileChangeRequest.Builder()
                             .setPhotoUri(uri)
                             .build()
+                        val db = FirebaseFirestore.getInstance()
+                        val userRef = db.collection("USERS").document(user!!.uid)
+                        userRef.update("profileImage", uri.toString())
                         user!!.updateProfile(profileUpdates)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {

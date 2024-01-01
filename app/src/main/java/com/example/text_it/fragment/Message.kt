@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
 import com.example.text_it.adapater.StatusAdapter
 import com.example.text_it.dataClass.Status_dataclass
@@ -14,9 +16,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 
 
+
 class Message : Fragment() {
     private lateinit var db: FirebaseFirestore
     private lateinit var statusAdapter: StatusAdapter
+    lateinit var dataSet: MutableList<Status_dataclass>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +46,13 @@ class Message : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        // val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
-        // recyclerView.adapter = statusAdapter
+        val myRecyclerView: RecyclerView? = view?.findViewById(R.id.statusRV)
+        if (myRecyclerView != null) {
+            myRecyclerView.layoutManager = LinearLayoutManager(context)
+        }
+        if (myRecyclerView != null) {
+            myRecyclerView.adapter = statusAdapter
+        }
     }
 
     private fun getStatusFromFirestore() {
@@ -54,7 +64,7 @@ class Message : Fragment() {
                     val status = document.toObject(Status_dataclass::class.java)
                     statusList.add(status)
                 }
-                updateAdapterWithStatusList(statusList)
+       updateAdapterWithStatusList(statusList)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents: ", exception)
@@ -63,5 +73,12 @@ class Message : Fragment() {
 
     private fun updateAdapterWithStatusList(statusList: List<Status_dataclass>) {
         statusAdapter.setStatusList(statusList)
+    }
+
+    fun setStatusList(newList: List<Status_dataclass>) {
+        dataSet.clear()
+        dataSet.addAll(newList)
+//        notifyDataSetChanged()
+
     }
 }

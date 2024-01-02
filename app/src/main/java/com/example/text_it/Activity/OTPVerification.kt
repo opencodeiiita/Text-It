@@ -19,7 +19,6 @@ class OTPVerification : AppCompatActivity() {
     private lateinit var pinView: PinView
     private lateinit var buttonVerify: Button
     private lateinit var textViewPhoneNo: TextView
-
     private lateinit var verificationId: String
     private lateinit var auth: FirebaseAuth
 

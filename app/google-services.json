@@ -4,6 +4,7 @@
     "project_id": "text-it-9b088",
     "storage_bucket": "text-it-9b088.appspot.com"
   },
+
   "client": [
     {
       "client_info": {

@@ -66,7 +66,6 @@ class OTPVerification : AppCompatActivity() {
                     val userMap = hashMapOf(
                         "name" to name,
                         "email" to email,
-                        "uid" to user.uid,
                         "profileImage" to ""
                     )
                     db.collection("USERS").document(user.uid).set(userMap)

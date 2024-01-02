@@ -148,7 +148,6 @@ class page1 : AppCompatActivity() {
                                         val userMap = hashMapOf(
                                             "name" to user?.displayName,
                                             "email" to user?.email,
-                                            "uid" to user?.uid,
                                             "profileImage" to ""
                                         )
                                         db.collection("USERS").document(user!!.uid).set(userMap)
@@ -257,7 +256,6 @@ class page1 : AppCompatActivity() {
                     val userMap = hashMapOf(
                         "name" to user?.displayName,
                         "email" to user?.email,
-                        "uid" to user?.uid,
                         "profileImage" to ""
                     )
                     db.collection("USERS").document(user!!.uid).set(userMap)

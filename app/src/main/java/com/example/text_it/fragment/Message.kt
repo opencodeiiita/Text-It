@@ -8,36 +8,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.text_it.R
 import com.example.text_it.adapater.StatusAdapter
 import com.example.text_it.dataClass.Status_dataclass
+import com.example.text_it.databinding.FragmentMessageBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-
-
 class Message : Fragment() {
+
+    private lateinit var binding: FragmentMessageBinding
+
     private lateinit var db: FirebaseFirestore
     private lateinit var statusAdapter: StatusAdapter
-    lateinit var dataSet: MutableList<Status_dataclass>
+   private  lateinit var dataSet: MutableList<Status_dataclass>
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        initFirestore()
-        statusAdapter = StatusAdapter(mutableListOf())
-        setupRecyclerView()
-        getStatusFromFirestore()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_message, container, false)
+        binding=FragmentMessageBinding.inflate(layoutInflater)
+
+        initFirestore()
+        dataSet = mutableListOf()
+        statusAdapter = StatusAdapter(dataSet,context)
+        setupRecyclerView()
+        getStatusFromFirestore()
+
+        return binding.root
     }
 
 
@@ -46,13 +46,11 @@ class Message : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        val myRecyclerView: RecyclerView? = view?.findViewById(R.id.statusRV)
-        if (myRecyclerView != null) {
-            myRecyclerView.layoutManager = LinearLayoutManager(context)
-        }
-        if (myRecyclerView != null) {
-            myRecyclerView.adapter = statusAdapter
-        }
+
+        binding.statusRV?.setHasFixedSize(true)
+        binding.statusRV?.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        binding.statusRV?.adapter = statusAdapter
+
     }
 
     private fun getStatusFromFirestore() {
@@ -63,6 +61,7 @@ class Message : Fragment() {
                 for (document in documents) {
                     val status = document.toObject(Status_dataclass::class.java)
                     statusList.add(status)
+
                 }
        updateAdapterWithStatusList(statusList)
             }
@@ -75,10 +74,6 @@ class Message : Fragment() {
         statusAdapter.setStatusList(statusList)
     }
 
-    fun setStatusList(newList: List<Status_dataclass>) {
-        dataSet.clear()
-        dataSet.addAll(newList)
-//        notifyDataSetChanged()
 
     }
-}
+

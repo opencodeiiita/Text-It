@@ -20,7 +20,7 @@ import java.util.Locale
 val dateFormat = SimpleDateFormat("MMMM dd, yyyy", Locale.US)
 val timeFormat = SimpleDateFormat("hh:mm a", Locale.US)
 
-class MessageAdapter(private val Messages: List<ChatMessage>):
+class MessageAdapter(private val Messages: MutableList<ChatMessage>):
     RecyclerView.Adapter<MessageAdapter.ViewHolder>()
 {
 
@@ -80,7 +80,7 @@ class MessageAdapter(private val Messages: List<ChatMessage>):
         holder.message.text = cur_message.message
         holder.time.text = timeFormat.format(cur_message.date)
 
-        if(position != 0 && Messages[position - 1].date == Messages[position].date)
+        if(position != 0 && dateFormat.format(Messages[position - 1].date) == dateFormat.format(Messages[position].date))
         {
             holder.date.visibility = View.GONE
         }
@@ -95,6 +95,10 @@ class MessageAdapter(private val Messages: List<ChatMessage>):
         return Messages.size
     }
 
-
+    fun addMessage(message: ChatMessage)
+    {
+        Messages.add(message)
+        notifyItemChanged(Messages.size - 1)
+    }
 
 }

@@ -55,12 +55,12 @@ class Chat : Fragment() {
         )
 
         // Sort the messageList by date in increasing order
-        val sortedMessages = messageList.sortedBy { it.date }
+        val sortedMessages = messageList.sortedBy { it.date }.toMutableList()
 
 
 
         val recycler = view.findViewById<RecyclerView>(R.id.messageRecyclerView)
-        val adapter = MessageAdapter(messageList)
+        val adapter = MessageAdapter(sortedMessages)
 
 
         val messageBox = view.findViewById<EditText>(R.id.messageBox)
@@ -89,12 +89,10 @@ class Chat : Fragment() {
             }
         })
 
-        send.setOnClickListener{
-            if(messageBox.text.toString().trim().isNotEmpty())
-            {
+        send.setOnClickListener {
+            if (messageBox.text.toString().trim().isNotEmpty()) {
                 val message = ChatMessage(messageBox.text.toString(), 0, Date())
-                // handling code for sending
-
+                adapter.addMessage(message)
                 messageBox.text.clear()
             }
         }

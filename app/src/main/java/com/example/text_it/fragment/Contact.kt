@@ -1,6 +1,7 @@
 package com.example.text_it.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,15 +28,16 @@ class Contact : Fragment() {
 
         val ContactList = mutableListOf<ProfileEntry>()
 
-        db.collection("users")
+        db.collection("USERS")
             .get()
             .addOnSuccessListener { documents ->
+                Log.d(documents.toString(), "DocumentSnapshot successfully read!")
                 for (document in documents) {
                     val profileData = document.data
                     val profileEntry = ProfileEntry(
-                        profileData["photo"] as String,
+                        profileData["profileImage"] as String,
                         profileData["name"] as String,
-                        profileData["emailId"] as String
+                        profileData["email"] as String
                     )
                     ContactList.add(profileEntry)
                 }

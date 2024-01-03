@@ -12,7 +12,6 @@
         android:background="@drawable/splash">
 
 
-
         <ImageButton
             android:id="@+id/BackButton"
             android:layout_width="24dp"
@@ -22,11 +21,11 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
+            android:background="#0E0C2B"
             android:layout_marginBottom="20dp"
-            android:background="#00000000"
             android:padding="20dp"
             android:src="@drawable/baseline_arrow_back_24"
-            app:tint="@color/white" />
+            app:tint="@color/white"  />
 
         <TextView
             android:id="@+id/settingsTitle"
@@ -38,7 +37,7 @@
             android:fontFamily="@font/poppins"
             android:text="Settings"
             android:textColor="@color/white"
-            android:textFontWeight="500"
+            android:textFontWeight="700"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -48,9 +47,9 @@
             android:layout_below="@id/BackButton"
             android:layout_marginTop="25dp"
             android:background="@drawable/card"
+            android:orientation="vertical"
             android:paddingHorizontal="25dp"
-            android:paddingVertical="15dp"
-            android:orientation="vertical">
+            android:paddingVertical="15dp">
 
 
             <View
@@ -58,18 +57,21 @@
                 android:layout_width="30dp"
                 android:layout_height="3dp"
                 android:layout_gravity="center"
-                android:background="#ffe6e6e6"/>
+                android:background="#ffe6e6e6" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="69dp">
+                android:layout_height="69dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/SettingsAvatar"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginEnd="19dp"
+                    android:clickable="false"
                     android:scaleType="centerCrop"
                     android:src="@drawable/person"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -84,13 +86,14 @@
                     android:id="@+id/SettingsName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="88dp"
-                    android:fontFamily="@font/poppins"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Nazrul Islam"
                     android:textColor="#000E08"
-                    android:textFontWeight="700"
-                    android:textSize="20sp"
+                    android:textFontWeight="1000"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toStartOf="@+id/imageButton"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,13 +101,15 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="4dp"
                     android:fontFamily="@font/poppins"
                     android:text="Never give up 💪"
                     android:textColor="#797C7B"
                     android:textFontWeight="400"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/SettingsName"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="@+id/SettingsName" />
 
                 <ImageButton
@@ -112,7 +117,8 @@
                     android:layout_width="71dp"
                     android:layout_height="69dp"
                     android:layout_marginHorizontal="15dp"
-                    android:background="@drawable/stylized_circle"
+                    android:background="@drawable/ripple_effect"
+                    android:clickable="true"
                     android:src="@drawable/qrcode_scan"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -122,17 +128,21 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
-                android:layout_marginTop="15dp"
-                android:layout_gravity="center"
                 android:layout_width="400dp"
                 android:layout_height="1dp"
-                android:background="#ffe6e6e6"/>
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="#ffe6e6e6" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="35dp"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:longClickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -152,12 +162,11 @@
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/poppins"
                     android:text="Privacy, security, change number"
-                    android:textColor="#797C7B"
+                    android:textColor="#797c78"
                     android:textFontWeight="400"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/textView2"
-                    />
+                    app:layout_constraintStart_toStartOf="@+id/textView2" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -165,20 +174,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Account"
-                    android:textColor="#000e08"
-                    android:textFontWeight="500"
+                    android:textColor="@color/black"
+                    android:textFontWeight="800"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2" />
-            </androidx.constraintlayout.widget.ConstraintLayout >
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
+                android:contextClickable="true"
+                android:longClickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -197,10 +210,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Chat"
                     android:textColor="#000e08"
-                    android:textFontWeight="500"
+                    android:textFontWeight="800"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -214,19 +227,21 @@
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/poppins"
                     android:text="Chat history, theme, wallpapers"
-                    android:textColor="#797C7B"
+                    android:textColor="#797c78"
                     android:textFontWeight="400"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView3"
 
                     />
-            </androidx.constraintlayout.widget.ConstraintLayout >
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -246,10 +261,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="20dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Notifications"
                     android:textColor="#000e08"
-                    android:textFontWeight="500"
+                    android:textFontWeight="800"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -261,7 +276,7 @@
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/poppins"
                     android:text="Messages, group &amp; others"
-                    android:textColor="#797C7B"
+                    android:textColor="#797c78"
                     android:textFontWeight="400"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -271,9 +286,11 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -293,10 +310,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="24dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Help"
                     android:textColor="#000e08"
-                    android:textFontWeight="500"
+                    android:textFontWeight="800"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -309,19 +326,21 @@
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/poppins"
                     android:text="Help center, contact us, privacy policy"
-                    android:textColor="#797C7B"
+                    android:textColor="#797c78"
                     android:textFontWeight="400"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView6"
 
                     />
-            </androidx.constraintlayout.widget.ConstraintLayout >
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -341,10 +360,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="24dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Storage and data"
                     android:textColor="#000e08"
-                    android:textFontWeight="500"
+                    android:textFontWeight="800"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -356,19 +375,21 @@
                     android:layout_marginBottom="4dp"
                     android:fontFamily="@font/poppins"
                     android:text="Network usage, storage usage"
-                    android:textColor="#797C7B"
+                    android:textColor="#797c78"
                     android:textFontWeight="400"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textView7"
 
                     />
-            </androidx.constraintlayout.widget.ConstraintLayout >
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -387,23 +408,25 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="Invite a friend"
                     android:textColor="#000e08"
-                    android:textFontWeight="500"
+                    android:textFontWeight="800"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout >
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/signOutBtn"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="49dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ripple_effect"
+                android:clickable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -422,26 +445,24 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
-                    android:fontFamily="@font/poppins"
+                    android:fontFamily="@font/poppins_bold"
                     android:text="SignOut"
                     android:textColor="#000e08"
-                    android:textFontWeight="500"
+                    android:textFontWeight="800"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/signOutImg" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout >
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:id="@+id/view2"
-                android:layout_marginTop="5dp"
                 android:layout_width="420dp"
                 android:layout_height="1dp"
                 android:layout_gravity="center"
-                android:background="#ffe6e6e6"/>
-
-
+                android:layout_marginTop="5dp"
+                android:background="#ffe6e6e6" />
 
 
         </LinearLayout>

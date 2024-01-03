@@ -20,7 +20,7 @@ class Message : Fragment() {
 
     private lateinit var db: FirebaseFirestore
     private lateinit var statusAdapter: StatusAdapter
-   private  lateinit var dataSet: MutableList<Status_dataclass>
+    private  lateinit var dataSet: MutableList<Status_dataclass>
 
 
 
@@ -63,7 +63,7 @@ class Message : Fragment() {
                     statusList.add(status)
 
                 }
-       updateAdapterWithStatusList(statusList)
+                updateAdapterWithStatusList(statusList)
             }
             .addOnFailureListener { exception ->
                 Log.w(ContentValues.TAG, "Error getting documents: ", exception)
@@ -75,5 +75,5 @@ class Message : Fragment() {
     }
 
 
-    }
+}
 

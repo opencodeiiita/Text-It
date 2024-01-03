@@ -1,7 +1,6 @@
 package com.example.text_it.adapater
 
 import android.content.Context
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,7 @@ import com.example.text_it.dataClass.Status_dataclass
 import com.google.android.material.imageview.ShapeableImageView
 
 
-class StatusAdapter(private var dataSet: MutableList<Status_dataclass>, var context: Context?) :
+class StatusAdapter(private var dataSet: MutableList<Status_dataclass>,var context: Context?) :
     RecyclerView.Adapter<StatusAdapter.ViewHolder>() {
 
 
@@ -33,7 +32,7 @@ class StatusAdapter(private var dataSet: MutableList<Status_dataclass>, var cont
     }
 
     override fun getItemCount(): Int {
-       return dataSet.size
+        return dataSet.size
     }
 
     inner class ViewHolder(var view: View) : RecyclerView.ViewHolder(view) {

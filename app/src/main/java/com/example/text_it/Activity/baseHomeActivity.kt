@@ -10,6 +10,7 @@ import com.example.text_it.fragment.Call
 import com.example.text_it.fragment.Contact
 import com.example.text_it.fragment.Message
 import com.example.text_it.R
+import com.example.text_it.fragment.Chat
 import com.example.text_it.fragment.Setting
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -43,7 +44,7 @@ class baseHomeActivity : AppCompatActivity() {
 //            }
 
             when (menuItem.itemId) {
-                R.id.message -> replaceFragment(Message())
+                R.id.message -> replaceFragment(Chat())
                 R.id.call -> replaceFragment(Call())
                 R.id.contact -> replaceFragment(Contact())
                 R.id.setting -> replaceFragment(Setting())

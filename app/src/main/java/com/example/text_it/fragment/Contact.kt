@@ -46,7 +46,7 @@ class Contact : Fragment() {
                 val adapter = ContactAdapter(ContactList)
 
                 recycler.adapter = adapter
-                recycler.layoutManager = LinearLayoutManager(view.context)
+                recycler.layoutManager = LinearLayoutManager(requireContext())
             }
         return view
     }

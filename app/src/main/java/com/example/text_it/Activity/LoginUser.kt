@@ -198,7 +198,7 @@ class LoginUser : AppCompatActivity() {
                     })
                 .addOnFailureListener(this@LoginUser,
                     OnFailureListener { e -> // No Google Accounts found. Just continue presenting the signed-out UI.
-                        Log.d(ContentValues.TAG, e.localizedMessage)
+                        e.localizedMessage?.let { it1 -> Log.d(ContentValues.TAG, it1) }
                     })
         }
 

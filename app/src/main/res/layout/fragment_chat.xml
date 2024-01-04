@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:paddingVertical="8dp"
+    tools:context=".fragment.Chat">
+
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:src="@drawable/back" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/circularImageView1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/back"
+            android:background="@drawable/circular_60px"
+            android:scaleType="centerCrop"
+            android:src="@drawable/person"
+            app:shapeAppearanceOverlay="@style/roundedImageView" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/circularImageView1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center_vertical"
+                android:text="John Abraham"
+                android:textColor="#000000"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:fontFamily="@font/poppins"
+                android:text="Active Now"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/phone" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/video_call" />
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="#ffffff"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="1.0">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/link" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@id/imageView10"
+                app:srcCompat="@drawable/emoji" />
+
+            <EditText
+                android:id="@+id/messageBox"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_toStartOf="@id/imageView9"
+                android:layout_toEndOf="@id/imageView8"
+                android:background="@drawable/rounded_corners"
+                android:hint="Enter message here"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColor="#BDC2C0"
+                android:textColorHint="#BDC2C0" />
+
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                app:srcCompat="@drawable/microphone" />
+
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/messageRecyclerView"
+        android:layout_height="0dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

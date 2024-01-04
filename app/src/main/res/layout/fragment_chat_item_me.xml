@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/messageDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/poppins"
+        android:text="Today"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/messageLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/messageLayout"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/messageDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/messageContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/chat_item_me"
+            android:maxWidth="300dp"
+            android:padding="7dp"
+            android:text="hello world, how are yousdfsdfdsfsdfsdfhsfshfshfhsdfsdhhsfhsfuhfehfnwihgskvnbsdkfbhsdufhusdfhs"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/messageTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/messageContent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginVertical="2dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="9:25PM"
+            android:textColor="#BBBDBC"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

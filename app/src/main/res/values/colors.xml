@@ -4,8 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00ffffff</color>
 
-    <color name="bottom_navbar">#EEFAF8</color>
+    <color name="bottom_navbar">#FFFFFFFF</color>
     <color name="bottom_navbar_not_selected">#797C7B</color>
-    <color name="bottom_navbar_selected">#24786D</color>
+    <color name="bottom_navbar_selected">#3D4A7A</color>
 
 </resources>

@@ -37,7 +37,7 @@ class Contact : Fragment() {
                     val profileEntry = ProfileEntry(
                         profileData["profileImage"] as String,
                         profileData["name"] as String,
-                        profileData["email"] as String
+                        profileData["email"] as String,
                     )
                     ContactList.add(profileEntry)
                 }

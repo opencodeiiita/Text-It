@@ -41,7 +41,7 @@ class SplashActivity : AppCompatActivity() {
         if (grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
             val iv_logo: ImageView = findViewById(R.id.iv_logo)
             iv_logo.animate().setDuration(SPLASH_TIME_OUT).alpha(1f).withEndAction {
-                startActivity(Intent(this, page1::class.java))
+                startActivity(Intent(this, LandingUser::class.java))
                 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                 finish()
             }

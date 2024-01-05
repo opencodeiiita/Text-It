@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.text_it.Activity.page1
+import com.example.text_it.Activity.LandingUser
 import com.example.text_it.R
 import com.google.firebase.auth.FirebaseAuth
 
@@ -47,7 +47,7 @@ class Setting : Fragment() {
 
         startActivity(
             android.content.Intent(
-                context, page1::class.java
+                context, LandingUser::class.java
             )
         )
 

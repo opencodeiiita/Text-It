@@ -20,7 +20,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.Onboarding"
+            android:name=".Activity.PhotoActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.OTPVerification"
@@ -42,13 +42,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.page1"
+            android:name=".Activity.LandingUser"
             android:exported="true" />
         <activity
             android:name=".Activity.LoginUser"
             android:exported="true" />
         <activity
             android:name=".Activity.RegisterUser"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.UserNameActivity"
             android:exported="true" />
         <activity
             android:name=".Activity.SplashActivity"

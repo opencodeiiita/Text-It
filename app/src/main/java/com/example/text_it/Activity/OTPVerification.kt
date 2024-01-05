@@ -72,7 +72,7 @@ class OTPVerification : AppCompatActivity() {
                     Toast.makeText(this, "Verification successful", Toast.LENGTH_SHORT).show()
                     startActivity(
                         Intent(
-                            this, Onboarding::class.java
+                            this, PhotoActivity::class.java
                         )
                     )
                     finish()

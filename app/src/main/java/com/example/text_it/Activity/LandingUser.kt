@@ -39,7 +39,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 
-class page1 : AppCompatActivity() {
+class LandingUser : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var oneTapClient: SignInClient
@@ -56,11 +56,56 @@ class page1 : AppCompatActivity() {
 
         if(currentUser != null)
         {
-            startActivity(
-                android.content.Intent(
-                    this, baseHomeActivity::class.java
-                )
-            )
+
+            val db = FirebaseFirestore.getInstance()
+            val userRef = db.collection("USERS").document(currentUser.uid)
+            userRef.get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        if(document.data?.get("phone") != null)
+                        {
+                            if(document.data?.get("phone") != "")
+                            {
+                                startActivity(
+                                    Intent(
+                                        this,
+                                        baseHomeActivity::class.java
+                                    )
+                                )
+                            }
+                            else
+                            {
+                                startActivity(
+                                    Intent(
+                                        this,
+                                        UserNameActivity::class.java
+                                    )
+                                )
+                            }
+                        }
+                        else
+                        {
+                            startActivity(
+                                Intent(
+                                    this,
+                                    UserNameActivity::class.java
+                                )
+                            )
+                        }
+                    } else {
+                        Log.d(TAG, "No such document")
+                    }
+                }
+                .addOnFailureListener{
+                    Toast.makeText(this, "failure",Toast.LENGTH_SHORT).show()
+                    startActivity(
+                        Intent(
+                            this,
+                            LandingUser::class.java
+                        ))
+
+                    finish()
+                }
         }
     }
 
@@ -75,10 +120,10 @@ class page1 : AppCompatActivity() {
 
         auth = Firebase.auth
         oneTapClient = Identity.getSignInClient(this)
-    window.setFlags(
-        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-    )
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
 
 
         LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
@@ -90,14 +135,14 @@ class page1 : AppCompatActivity() {
             }
 
             override fun onCancel() {
-                Toast.makeText(this@page1, "Login Cancel", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@LandingUser, "Login Cancel", Toast.LENGTH_SHORT).show()
                 Log.d("cancel", "Lets go")
                 Firebase.auth.signOut()
 
             }
 
             override fun onError(error: FacebookException) {
-                Toast.makeText(this@page1, error.message, Toast.LENGTH_LONG).show()
+                Toast.makeText(this@LandingUser, error.message, Toast.LENGTH_LONG).show()
                 Log.e(TAG, "Its definitely an error")
             }
         })
@@ -115,7 +160,7 @@ class page1 : AppCompatActivity() {
 
         btnFbLogin.setOnClickListener {
             LoginManager.getInstance()
-                .logInWithReadPermissions(this@page1, listOf("email", "public_profile"))
+                .logInWithReadPermissions(this@LandingUser, listOf("email", "public_profile"))
         }
 
 
@@ -125,7 +170,7 @@ class page1 : AppCompatActivity() {
         val signupButton: Button = findViewById(R.id.signupButton)
         val loginButton: TextView = findViewById(R.id.textViewLogin)
         val googleButton: ImageButton = findViewById(R.id.btnGoogle)
-        
+
         val launcher = registerForActivityResult<IntentSenderRequest, ActivityResult>(
             ActivityResultContracts.StartIntentSenderForResult()
         ) { result: ActivityResult ->
@@ -142,35 +187,70 @@ class page1 : AppCompatActivity() {
                                 OnCompleteListener<AuthResult?> { task ->
                                     if (task.isSuccessful) {
                                         // Sign in success, update UI with the signed-in user's information
+
+
+
                                         Log.d(TAG, "signInWithCredential:success")
                                         val user: FirebaseUser? = auth.currentUser
+
                                         val db = FirebaseFirestore.getInstance()
+                                        val userRef = db.collection("USERS").document(user!!.uid)
                                         val userMap = hashMapOf(
-                                            "name" to user?.displayName,
-                                            "email" to user?.email,
+                                            "name" to user.displayName,
+                                            "email" to user.email,
                                             "profileImage" to ""
                                         )
-                                        db.collection("USERS").document(user!!.uid).set(userMap)
-                                        Toast.makeText(
-                                            this@page1,
-                                            "Authentication Success.",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        if(task.result.additionalUserInfo?.isNewUser == true) {
-                                            startActivity(
-                                                Intent(
-                                                    this@page1,
-                                                    Onboarding::class.java
-                                                )
-                                            )
-                                        } else {
-                                            startActivity(
-                                                Intent(
-                                                    this@page1,
-                                                    baseHomeActivity::class.java
-                                                )
-                                            )
-                                        }
+
+                                        Log.d("User id1", user.uid)
+
+                                        userRef.get() // for consistency in db
+                                            .addOnSuccessListener { document ->
+                                                if(document == null)
+                                                {
+                                                    db.collection("USERS").document(user.uid).set(userMap)
+                                                }
+
+                                                Toast.makeText(
+                                                    this@LandingUser,
+                                                    "Authentication Success.",
+                                                    Toast.LENGTH_SHORT
+                                                ).show()
+
+                                                Log.d("Details from google", document.data.toString())
+                                                val details = document.data as HashMap<String, Any>
+                                                val phonenum = details["phone"] as String?
+                                                Log.d("Phone number", phonenum ?: "null phone number")
+                                                if(phonenum== null || phonenum == "") {
+                                                    startActivity(
+                                                        Intent(
+                                                            this,
+                                                            UserNameActivity::class.java
+                                                        )
+                                                    )
+                                                } else {
+                                                    startActivity(
+                                                        Intent(
+                                                            this,
+                                                            PhotoActivity::class.java
+                                                        )
+                                                    )
+                                                }
+
+                                            }
+                                            .addOnFailureListener{
+                                                auth.signOut();
+                                                Toast.makeText(this, "failure",Toast.LENGTH_SHORT).show()
+                                                startActivity(
+                                                    Intent(
+                                                        this,
+                                                        LandingUser::class.java
+                                                    ))
+
+                                                finish()
+                                            }
+
+
+
                                     } else {
                                         Toast.makeText(this, "failure",Toast.LENGTH_SHORT).show()
 
@@ -199,7 +279,7 @@ class page1 : AppCompatActivity() {
                 .setAutoSelectEnabled(true)
                 .build()
             oneTapClient.beginSignIn(signInRequest)
-                .addOnSuccessListener(this@page1,
+                .addOnSuccessListener(this,
                     OnSuccessListener<BeginSignInResult> { result ->
                         Toast.makeText(this, "gooo",Toast.LENGTH_SHORT).show()
 
@@ -209,7 +289,7 @@ class page1 : AppCompatActivity() {
                             ).build()
                         )
                     })
-                .addOnFailureListener(this@page1,
+                .addOnFailureListener(this,
                     OnFailureListener { e -> // No Google Accounts found. Just continue presenting the signed-out UI.
                         Toast.makeText(this, e.localizedMessage,Toast.LENGTH_SHORT).show()
                         Log.d(TAG, e.localizedMessage)
@@ -262,15 +342,15 @@ class page1 : AppCompatActivity() {
                     if(task.result.additionalUserInfo?.isNewUser == true) {
                         startActivity(
                             Intent(
-                                this@page1,
-                                Onboarding::class.java
+                                this,
+                                UserNameActivity::class.java
                             )
                         )
                     } else {
                         startActivity(
                             Intent(
-                                this@page1,
-                                baseHomeActivity::class.java
+                                this,
+                                PhotoActivity::class.java
                             )
                         )
                     }

@@ -131,36 +131,73 @@ class LoginUser : AppCompatActivity() {
                                 OnCompleteListener<AuthResult?> { task ->
                                     if (task.isSuccessful) {
                                         // Sign in success, update UI with the signed-in user's information
+
+
+
                                         Log.d(ContentValues.TAG, "signInWithCredential:success")
                                         val user: FirebaseUser? = auth.currentUser
+
                                         val db = FirebaseFirestore.getInstance()
+                                        val userRef = db.collection("USERS").document(user!!.uid)
                                         val userMap = hashMapOf(
-                                            "name" to user?.displayName,
-                                            "email" to user?.email,
+                                            "name" to user.displayName,
+                                            "email" to user.email,
                                             "profileImage" to ""
                                         )
-                                        db.collection("USERS").document(user!!.uid).set(userMap)
-                                        Toast.makeText(
-                                            this@LoginUser,
-                                            "Authentication Success.",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        if(task.result.additionalUserInfo?.isNewUser == true) {
-                                            startActivity(
-                                                Intent(
-                                                    this@LoginUser,
-                                                    Onboarding::class.java
-                                                )
-                                            )
-                                        } else {
-                                            startActivity(
-                                                Intent(
-                                                    this@LoginUser,
-                                                    baseHomeActivity::class.java
-                                                )
-                                            )
-                                        }
+
+                                        Log.d("User id1", user.uid)
+
+                                        userRef.get() // for consistency in db
+                                            .addOnSuccessListener { document ->
+                                                if(document == null)
+                                                {
+                                                    db.collection("USERS").document(user.uid).set(userMap)
+                                                }
+
+                                                Toast.makeText(
+                                                    this,
+                                                    "Authentication Success.",
+                                                    Toast.LENGTH_SHORT
+                                                ).show()
+
+                                                Log.d("Details from google", document.data.toString())
+                                                val details = document.data as HashMap<String, Any>
+                                                val phonenum = details["phone"] as String?
+                                                Log.d("Phone number", phonenum ?: "null phone number")
+                                                if(phonenum== null || phonenum == "") {
+                                                    startActivity(
+                                                        Intent(
+                                                            this,
+                                                            UserNameActivity::class.java
+                                                        )
+                                                    )
+                                                } else {
+                                                    startActivity(
+                                                        Intent(
+                                                            this,
+                                                            PhotoActivity::class.java
+                                                        )
+                                                    )
+                                                }
+
+                                            }
+                                            .addOnFailureListener{
+                                                auth.signOut();
+                                                Toast.makeText(this, "failure",Toast.LENGTH_SHORT).show()
+                                                startActivity(
+                                                    Intent(
+                                                        this,
+                                                        LandingUser::class.java
+                                                    ))
+
+                                                finish()
+                                            }
+
+
+
                                     } else {
+                                        Toast.makeText(this, "failure",Toast.LENGTH_SHORT).show()
+
                                         // If sign in fails, display a message to the user.
                                         Log.w(
                                             ContentValues.TAG,
@@ -171,7 +208,6 @@ class LoginUser : AppCompatActivity() {
                                 })
                     }
                 } catch (e: ApiException) {
-                    //
                 }
             }
         }
@@ -295,14 +331,14 @@ class LoginUser : AppCompatActivity() {
                         startActivity(
                             Intent(
                                 this@LoginUser,
-                                Onboarding::class.java
+                                UserNameActivity::class.java
                             )
                         )
                     } else {
                         startActivity(
                             Intent(
                                 this@LoginUser,
-                                baseHomeActivity::class.java
+                                PhotoActivity::class.java
                             )
                         )
                     }

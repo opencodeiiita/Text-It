@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.Call">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@color/white">
+        <LinearLayout
+            android:id="@+id/linearLayoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="25dp"
+            android:orientation="horizontal">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextSearch"
+            android:background="@drawable/search_box"
+            android:drawableStart="@drawable/search"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/black"
+            android:maxLines="1"
+            android:hint="Search"
+            android:padding="10dp" />
+        <ImageView
+            android:id="@+id/imageButtonCross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-40dp"
+            android:padding="15dp"
+            app:tint="@color/black"
+            android:src="@drawable/cross"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linearLayoutSearch"
+            android:background="@drawable/card"
+            android:paddingHorizontal="25dp"
+            android:paddingVertical="15dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewNameHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="10dp"
+                android:text="People"
+                android:textColor="#000e08"
+                android:textFontWeight="800"
+                android:textSize="16sp" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/recyclerViewCallList"
+                android:layout_marginTop="5dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/fragment_call_item"/>
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>

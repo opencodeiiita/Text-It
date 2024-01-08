@@ -1,48 +1,64 @@
 package com.example.text_it.fragment
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
 import com.google.firebase.firestore.FirebaseFirestore
 
-data class CallInfo(val name: String)
+class Search : Fragment() {
 
-class Call : Fragment() {
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: CallAdapter
+    private lateinit var adapter: CallSearchAdapter
+
     private val callList = mutableListOf<CallInfo>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_call, container, false)
-
-        val searchButton: ImageButton = view.findViewById(R.id.searchButton)
-        searchButton.setOnClickListener {
-            val searchFragment = Search()
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragmentContainer, searchFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
-
-        recyclerView = view.findViewById(R.id.recyclerViewCallList)
-        adapter = CallAdapter(callList)
+        val view = inflater.inflate(R.layout.fragment_search, container, false)
+        val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewCallList)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
         fetchDataFromFirebase()
 
+        val crossButton: ImageView = view.findViewById(R.id.imageButtonCross)
+        crossButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
+
+        val editTextSearch: EditText = view.findViewById(R.id.editTextSearch)
+        editTextSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                filterCallList(s.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
         return view
+    }
+
+    private fun filterCallList(query: String) {
+        val filteredList = mutableListOf<CallInfo>()
+        for (call in callList) {
+            if (call.name.contains(query, ignoreCase = true)) {
+                filteredList.add(call)
+            }
+        }
+        adapter.updateList(filteredList)
     }
 
     private fun fetchDataFromFirebase() {
@@ -54,16 +70,20 @@ class Call : Fragment() {
                     val call = CallInfo(name)
                     callList.add(call)
                 }
-                adapter.notifyDataSetChanged()
+                adapter.updateList(callList)
             }
             .addOnFailureListener { exception ->
-                Log.d("Call", "Error getting documents: ", exception)
+                Log.d("Search", "Error getting documents: ", exception)
             }
     }
 }
 
-class CallAdapter(private val callList: List<CallInfo>) :
-    RecyclerView.Adapter<CallAdapter.CallViewHolder>() {
+class CallSearchAdapter(private var callList: List<CallInfo>) :
+    RecyclerView.Adapter<CallSearchAdapter.CallViewHolder>() {
+    fun updateList(newList: List<CallInfo>) {
+        callList = newList
+        notifyDataSetChanged()
+    }
 
     class CallViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textViewName: TextView = itemView.findViewById(R.id.textViewName)

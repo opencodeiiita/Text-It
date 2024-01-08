@@ -28,6 +28,8 @@ class Search : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewCallList)
+        adapter = CallSearchAdapter(callList)
+
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         fetchDataFromFirebase()

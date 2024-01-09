@@ -1,10 +1,10 @@
 {
   "project_info": {
     "project_number": "962483124291",
-    "firebase_url": "https://text-it-9b088-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "text-it-9b088",
     "storage_bucket": "text-it-9b088.appspot.com"
   },
+
   "client": [
     {
       "client_info": {
@@ -15,91 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "962483124291-0fqhh35n3ojpbdh7s40nlcoti5dvpjdh.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "fdeb92824aebacd19caf8264a29c7ef4e5f5958d"
-          }
-        },
-        {
-          "client_id": "962483124291-1r61uq96pnt04uiiuufem1uoilv8dila.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "7bb00266d92d20ddff32c4626b6afd798f747438"
-          }
-        },
-        {
           "client_id": "962483124291-23me7br152feha8usdd9mjuujbenm74n.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.text_it",
             "certificate_hash": "fb329be3994a9f68038442fcaafcb3f3bdae2ba7"
-          }
-        },
-        {
-          "client_id": "962483124291-87ig6n9s18bl0ohrfqfes06qir46a1ag.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "3eebfd544d1c8d2d553a9953ca3de7f99be6198d"
-          }
-        },
-        {
-          "client_id": "962483124291-9551su5nhfsqs739qi2dh65ho21vlnja.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "116f5fd9c7777c4a7a18d6f9f971391b7f7c594d"
-          }
-        },
-        {
-          "client_id": "962483124291-avqf6gdgcphpqmusfo6or05kaidfidau.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "0e472c5f1ece87b156a435c640e399154524c719"
-          }
-        },
-        {
-          "client_id": "962483124291-ho96acenglvkbql8un680qcgi8mgie2g.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "a0fb0288c6b86d6b9d029ee07bb978edace16dfd"
-          }
-        },
-        {
-          "client_id": "962483124291-jum27tuf4tcdreecqbo2vhqs2qit7gu1.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "e6457282e79f3d4a2f1e9fc138b7e348c8f1172d"
-          }
-        },
-        {
-          "client_id": "962483124291-ktk59gn8i63l4cp34vei8tot1ispuk0i.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "0381434fb6d4427377b846f0f16c98be578d2464"
-          }
-        },
-        {
-          "client_id": "962483124291-oibdaepg6jg4pil7cmj9osls9eqtu8dq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "924157be9831a94c9ae54d8bec5984c75d0020d8"
-          }
-        },
-        {
-          "client_id": "962483124291-u13tj26eev280pglf50dfbu0jkd7ksse.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.text_it",
-            "certificate_hash": "e3b05730aa533d60429504043b164c21edaa5cd9"
           }
         },
         {

@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutMessageItem"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -14,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/shapeableImageViewProfile"
+            android:id="@+id/shapeableImageView2"
             android:layout_width="62dp"
             android:layout_height="62dp"
             android:layout_marginStart="16dp"
@@ -26,7 +25,7 @@
             app:shapeAppearance="@style/circle" />
 
         <TextView
-            android:id="@+id/textViewSenderName"
+            android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -37,11 +36,10 @@
             android:textFontWeight="500"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/shapeableImageViewProfile"
+            app:layout_constraintStart_toEndOf="@+id/shapeableImageView2"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewLastMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
@@ -49,13 +47,12 @@
             android:textColor="#797C7B"
             android:textFontWeight="400"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/textViewSenderName"
+            app:layout_constraintEnd_toEndOf="@+id/textView8"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/textViewSenderName"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSenderName" />
+            app:layout_constraintStart_toStartOf="@+id/textView8"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
         <TextView
-            android:id="@+id/textViewTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

@@ -44,7 +44,7 @@ class baseHomeActivity : AppCompatActivity() {
 //            }
 
             when (menuItem.itemId) {
-                R.id.message -> replaceFragment(Message())
+                R.id.message -> replaceFragment(Chat())
                 R.id.call -> replaceFragment(Call())
                 R.id.contact -> replaceFragment(Contact())
                 R.id.setting -> replaceFragment(Setting())

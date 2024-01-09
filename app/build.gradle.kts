@@ -63,5 +63,4 @@ dependencies {
     implementation("io.github.chaosleung:pinview:1.4.4")
     implementation("com.hbb20:ccp:2.7.0")
     implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
-    implementation("com.github.marlonlom:timeago:4.0.3")
 }

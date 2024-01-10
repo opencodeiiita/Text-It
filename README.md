@@ -62,7 +62,7 @@ Whether you are working on a new feature or facing a doubt please feel free to a
 
 ## 🏆Our Top Contributors
 
-<a href="https://contributors.dev/api/gh/opencodeiiita/Text-It/contributors?from=2023-11-19&to=2024-01-11&type=a&count=5">
+<a href="https://github.com/opencodeiiita/Text-It/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=opencodeiiita/Text-it"/>
 </a>
 

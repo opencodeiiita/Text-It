@@ -16,7 +16,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/person"
+            android:src="@drawable/default_user"
             android:scaleType="centerCrop"
             app:shapeAppearance="@style/circle" />
 

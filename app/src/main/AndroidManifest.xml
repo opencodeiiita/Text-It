@@ -28,6 +28,13 @@
         <activity
             android:name=".Activity.OTPVerification"
             android:exported="false" />
+
+        <activity
+            android:name=".fragment.Setting"
+            android:exported="false" />
+        <activity
+            android:name=".fragment.SettingsAccount"
+            android:exported="false" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -70,6 +77,7 @@
             android:name=".Activity.baseHomeActivity"
             android:exported="true"
             android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
+
 
         <meta-data
             android:name="preloaded_fonts"

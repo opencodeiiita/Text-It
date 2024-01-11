@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_container"
+    android:visibility="visible"
     tools:context=".fragment.Setting">
 
     <RelativeLayout
@@ -13,7 +15,7 @@
 
 
         <ImageButton
-            android:id="@+id/BackButton"
+            android:id="@+id/settingsBack"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentStart="true"
@@ -44,7 +46,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/BackButton"
+            android:layout_below="@id/settingsBack"
             android:layout_marginTop="25dp"
             android:background="@drawable/card"
             android:orientation="vertical"
@@ -61,10 +63,13 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profileBtn"
                 android:layout_width="match_parent"
                 android:layout_height="69dp"
                 android:background="@drawable/ripple_effect"
-                android:clickable="true">
+                android:clickable="true"
+                tools:layout_editor_absoluteX="101dp"
+                tools:layout_editor_absoluteY="4dp">
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/SettingsAvatar"
@@ -86,7 +91,7 @@
                     android:id="@+id/SettingsName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="16dp"
                     android:layout_marginEnd="50dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Nazrul Islam"
@@ -94,14 +99,15 @@
                     android:textFontWeight="1000"
                     android:textSize="25sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/imageButton"
+                    app:layout_constraintEnd_toStartOf="@+id/scanBtn"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/poppins"
                     android:text="Never give up 💪"
                     android:textColor="#797C7B"
@@ -113,7 +119,7 @@
                     app:layout_constraintStart_toStartOf="@+id/SettingsName" />
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/scanBtn"
                     android:layout_width="71dp"
                     android:layout_height="69dp"
                     android:layout_marginHorizontal="15dp"
@@ -136,9 +142,10 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/accountBtn"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
-                android:layout_marginTop="35dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="25dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
                 android:contextClickable="true"
@@ -148,11 +155,11 @@
 
                 <ImageView
                     android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/stylized_circle"
                     android:backgroundTint="#4a80f5"
-                    android:src="@drawable/key"
+                    android:src="@drawable/key2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -185,8 +192,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/chatBtn"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
@@ -197,11 +205,11 @@
 
                 <ImageView
                     android:id="@+id/imageView3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/stylized_circle"
                     android:backgroundTint="#4a80f5"
-                    android:src="@drawable/message_black"
+                    android:src="@drawable/chat2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -210,6 +218,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Chat"
                     android:textColor="#000e08"
@@ -219,7 +228,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView3"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.08" />
+                    app:layout_constraintVertical_bias="0.833" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -237,8 +246,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/notifBtn"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
@@ -247,11 +257,11 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/stylized_circle"
                     android:backgroundTint="#4a80f5"
-                    android:src="@drawable/bell"
+                    android:src="@drawable/bell2"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -286,8 +296,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/helpBtn"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
@@ -296,11 +307,11 @@
 
                 <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/stylized_circle"
                     android:backgroundTint="#4a80f5"
-                    android:src="@drawable/help"
+                    android:src="@drawable/help2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -309,7 +320,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Help"
                     android:textColor="#000e08"
@@ -336,8 +347,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/storageBtn"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
@@ -346,11 +358,11 @@
 
                 <ImageView
                     android:id="@+id/imageView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/stylized_circle"
                     android:backgroundTint="#4a80f5"
-                    android:src="@drawable/up_down"
+                    android:src="@drawable/up_down2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -359,7 +371,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginBottom="24dp"
+                    android:layout_marginBottom="20dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="Storage and data"
                     android:textColor="#000e08"
@@ -385,8 +397,9 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/inviteBtn"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
@@ -395,11 +408,11 @@
 
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/stylized_circle"
                     android:backgroundTint="#4a80f5"
-                    android:src="@drawable/friend"
+                    android:src="@drawable/friend2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -423,7 +436,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/signOutBtn"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/ripple_effect"
                 android:clickable="true"
@@ -432,11 +445,11 @@
 
                 <ImageView
                     android:id="@+id/signOutImg"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/stylized_circle"
                     android:backgroundTint="#4a80f5"
-                    android:src="@drawable/signout"
+                    android:src="@drawable/signout2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
 

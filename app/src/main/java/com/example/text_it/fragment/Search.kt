@@ -1,5 +1,11 @@
 package com.example.text_it.fragment
 
+import CallAdapter
+import android.Manifest
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -11,14 +17,16 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
+import com.example.text_it.dataClass.CallInfo
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Search : Fragment() {
 
-    private lateinit var adapter: CallSearchAdapter
+    private lateinit var adapter: CallAdapter
 
     private val callList = mutableListOf<CallInfo>()
 
@@ -28,7 +36,7 @@ class Search : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewCallList)
-        adapter = CallSearchAdapter(callList)
+        adapter = CallAdapter(callList)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -69,7 +77,9 @@ class Search : Fragment() {
             .addOnSuccessListener { documents ->
                 for (document in documents) {
                     val name = document.data["name"].toString()
-                    val call = CallInfo(name)
+                    val phone = document.data["phone"].toString()
+                    val profileImage = document.data["profileImage"].toString()
+                    val call = CallInfo(name, phone, profileImage)
                     callList.add(call)
                 }
                 adapter.updateList(callList)
@@ -80,29 +90,4 @@ class Search : Fragment() {
     }
 }
 
-class CallSearchAdapter(private var callList: List<CallInfo>) :
-    RecyclerView.Adapter<CallSearchAdapter.CallViewHolder>() {
-    fun updateList(newList: List<CallInfo>) {
-        callList = newList
-        notifyDataSetChanged()
-    }
 
-    class CallViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewName: TextView = itemView.findViewById(R.id.textViewName)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_call_item, parent, false)
-        return CallViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: CallViewHolder, position: Int) {
-        val call = callList[position]
-        holder.textViewName.text = call.name
-    }
-
-    override fun getItemCount(): Int {
-        return callList.size
-    }
-}

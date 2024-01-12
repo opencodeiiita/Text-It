@@ -1,6 +1,5 @@
 package com.example.text_it.fragment
 
-import CallAdapter
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,10 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
 import com.google.firebase.firestore.FirebaseFirestore
-import com.example.text_it.dataClass.CallInfo
 
 
-
+data class CallInfo(val name: String)
 
 class Call : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -69,7 +67,7 @@ class Call : Fragment() {
                     val name = document.data["name"].toString()
                     val phone = document.data["phone"].toString()
                     val profileImage = document.data["profileImage"].toString()
-                    val call = CallInfo(name, phone, profileImage)
+                    val call = CallInfo(name)
                     callList.add(call)
                 }
                 adapter.notifyDataSetChanged()
@@ -77,5 +75,28 @@ class Call : Fragment() {
             .addOnFailureListener { exception ->
                 Log.d("Call", "Error getting documents: ", exception)
             }
+    }
+}
+
+class CallAdapter(private val callList: List<CallInfo>) :
+RecyclerView.Adapter<CallAdapter.CallViewHolder>() {
+
+    class CallViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textViewName: TextView = itemView.findViewById(R.id.textViewName)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.fragment_call_item, parent, false)
+        return CallViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: CallViewHolder, position: Int) {
+        val call = callList[position]
+        holder.textViewName.text = call.name
+    }
+
+    override fun getItemCount(): Int {
+        return callList.size
     }
 }

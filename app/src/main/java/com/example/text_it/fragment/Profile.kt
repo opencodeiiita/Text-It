@@ -14,7 +14,5 @@ class Profile : Fragment() {    override fun onCreateView(
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
-
-
     }
 }

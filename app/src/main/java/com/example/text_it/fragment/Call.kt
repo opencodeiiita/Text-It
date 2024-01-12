@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
+import com.example.text_it.adapter.CallAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -50,7 +51,7 @@ class Call : Fragment() {
             transaction.commit()
         }
         recyclerView = view.findViewById(R.id.recyclerViewCallList)
-        adapter = CallAdapter(callList)
+        adapter = CallAdapter(requireContext(),callList)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 

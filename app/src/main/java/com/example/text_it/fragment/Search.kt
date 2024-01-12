@@ -20,6 +20,8 @@ import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
+import com.example.text_it.adapter.CallAdapter
+import com.example.text_it.dataClass.CallInfo
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Search : Fragment() {
@@ -34,7 +36,7 @@ class Search : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewCallList)
-        adapter = CallSearchAdapter(callList)
+        adapter = CallAdapter(requireContext(),callList)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -66,7 +68,7 @@ class Search : Fragment() {
                 filteredList.add(call)
             }
         }
-        adapter.updateList(filteredList)
+//        adapter.updateList(filteredList)
     }
 
     private fun fetchDataFromFirebase() {
@@ -80,7 +82,7 @@ class Search : Fragment() {
                     val call = CallInfo(name)
                     callList.add(call)
                 }
-                adapter.updateList(callList)
+//                adapter.updateList(callList)
             }
             .addOnFailureListener { exception ->
                 Log.d("Search", "Error getting documents: ", exception)

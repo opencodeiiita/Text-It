@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_container"
     tools:context=".fragment.SettingsAccount">
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
+       android:background="@color/white"
        android:orientation="vertical">
+
+       <ImageButton
+           android:id="@+id/accBack"
+           android:layout_width="30dp"
+           android:layout_height="30dp"
+           android:layout_marginStart="20dp"
+           android:layout_marginTop="20dp"
+           android:padding="20dp"
+           android:background="#F9F9F6"
+           android:src="@drawable/baseline_arrow_back_24"
+        />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

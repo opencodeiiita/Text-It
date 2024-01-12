@@ -28,7 +28,8 @@ class SplashActivity : AppCompatActivity() {
 
         requestPermissions(
                 arrayOf(
-                    android.Manifest.permission.CAMERA
+                    android.Manifest.permission.CAMERA,
+                    android.Manifest.permission.CALL_PHONE,
                 ), 1
             )
 
@@ -38,7 +39,7 @@ class SplashActivity : AppCompatActivity() {
         requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+        if (grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED && grantResults[1] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
             val iv_logo: ImageView = findViewById(R.id.iv_logo)
             iv_logo.animate().setDuration(SPLASH_TIME_OUT).alpha(1f).withEndAction {
                 startActivity(Intent(this, LandingUser::class.java))

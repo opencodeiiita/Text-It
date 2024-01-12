@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import com.example.text_it.R
 
 class SettingsInvite : Fragment() {
@@ -16,5 +17,20 @@ class SettingsInvite : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_settings_invite, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val inviteBackBtn = view.findViewById<ImageButton>(R.id.inviteBack)
+        val fragmentManager = requireActivity().supportFragmentManager
+
+
+        inviteBackBtn?.setOnClickListener {
+            fragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, Setting())
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }

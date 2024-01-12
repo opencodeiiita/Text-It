@@ -41,7 +41,7 @@
             android:layout_height="100dp">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/shapeableImageView"
+                android:id="@+id/shapeableImageViewAddStatus"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:layout_marginStart="16dp"
@@ -59,7 +59,7 @@
                 android:padding="20dp"
                 android:src="@drawable/baseline_add_circle_24"
                 app:layout_constraintBottom_toBottomOf="@+id/shapeableImageView"
-                app:layout_constraintEnd_toEndOf="@+id/shapeableImageView" />
+                app:layout_constraintEnd_toEndOf="@+id/shapeableImageViewAddStatus"/>
 
             <TextView
                 android:id="@+id/textView9"
@@ -69,10 +69,10 @@
                 android:text="My status"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/shapeableImageView"
+                app:layout_constraintEnd_toEndOf="@+id/shapeableImageViewAddStatus"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
-                app:layout_constraintTop_toBottomOf="@+id/shapeableImageView" />
+                app:layout_constraintStart_toStartOf="@+id/shapeableImageViewAddStatus"
+                app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewAddStatus" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/statusRV"

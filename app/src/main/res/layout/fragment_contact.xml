@@ -101,7 +101,6 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycle"
                 android:layout_width="348dp"
-                android:padding="10dp"
                 tools:listitem="@layout/contactlayout"
                 android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"

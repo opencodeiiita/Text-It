@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
 import com.example.text_it.adapater.ContactAdapter
+import com.example.text_it.dataClass.CallInfo
 import com.example.text_it.dataClass.ProfileEntry
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -43,11 +44,25 @@ class Contact : Fragment() {
                 }
                 ContactList.sortBy { it.name }
                 val recycler = view.findViewById<RecyclerView>(R.id.recycle)
-                val adapter = ContactAdapter(ContactList)
+                val adapter = ContactAdapter(ContactList,this)
 
                 recycler.adapter = adapter
                 recycler.layoutManager = LinearLayoutManager(requireContext())
             }
         return view
+    }
+
+    fun onItemClick(item: ProfileEntry ) {
+        val bundle = Bundle()
+        bundle.putString("name", item.name ?: "Name")
+        bundle.putString("email", item.email ?: "email")
+//        bundle.putString("img", item.image ?: "img")
+        val nextFragment = UserProject()
+        nextFragment.arguments = bundle
+        val transaction = childFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainer, UserProject())
+        transaction.addToBackStack(null)
+        transaction.commit()
+
     }
 }

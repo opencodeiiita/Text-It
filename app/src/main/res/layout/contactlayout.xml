@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/contactLay"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,14 +11,12 @@
         android:id="@+id/headingContact"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="30dp"
         android:layout_marginBottom="60dp"
         android:text="A"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="gone"
-        app:layout_goneMarginBottom="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -28,8 +27,9 @@
     <LinearLayout
         android:id="@+id/id1"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
+        android:layout_height="55dp"
         android:gravity="center_vertical"
+        android:weightSum="1"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,18 +40,18 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/circularImageView1"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2"
             android:layout_marginStart="15dp"
             android:background="@drawable/circular"
             android:scaleType="centerCrop"
             android:src="@drawable/facebook"
             app:shapeAppearanceOverlay="@style/roundedImageView" />
 
-
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginStart="20dp"
             android:orientation="vertical">
@@ -60,7 +60,6 @@
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="5"
                 android:fontFamily="sans-serif-medium"
                 android:gravity="center_vertical"
                 android:text="Afrin Sabrina"
@@ -71,7 +70,6 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
                 android:text="Life is Beautiful"
                 android:textColor="#675C5C"
                 android:textSize="15sp" />

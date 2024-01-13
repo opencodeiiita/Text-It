@@ -1,6 +1,12 @@
 ## Why Text-it
 **Every app developer starts its journey by making a chat app.**</p>
 
+## 🏆Our Top Contributors
+
+<a href="https://github.com/opencodeiiita/Text-It/graphs/contributors?from=2023-11-19&to=2024-01-11&type=a">
+  <img src = "https://contrib.rocks/image?repo=opencodeiiita/Text-it"/>
+</a>
+
 ## 🧷Getting Started
 - [Setup Git](https://git-scm.com/downloads)
 - [Setting up Android Studio](https://developer.android.com/studio/install)
@@ -59,11 +65,4 @@ Whether you are working on a new feature or facing a doubt please feel free to a
 - [Set your commit email address in Git.](https://help.github.com/articles/setting-your-commit-email-address-in-git)
 - [Firebase official Documentation](https://firebase.google.com/docs)
 - [Kotlin official Documentation](https://kotlinlang.org/docs/home.html)
-
-## 🏆Our Top Contributors
-
-<a href="https://github.com/opencodeiiita/Text-It/graphs/contributors?from=2023-11-19&to=2024-01-11&type=a">
-  <img src = "https://contrib.rocks/image?repo=opencodeiiita/Text-it"/>
-</a>
-
 

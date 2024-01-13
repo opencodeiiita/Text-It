@@ -1,10 +1,5 @@
 package com.example.text_it.fragment
 
-import android.Manifest
-import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -16,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
@@ -26,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class Search : Fragment() {
 
-    private lateinit var adapter: CallSearchAdapter
+    private lateinit var adapter: CallAdapter
 
     private val callList = mutableListOf<CallInfo>()
 
@@ -36,7 +30,7 @@ class Search : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewCallList)
-        adapter = CallAdapter(requireContext(),callList)
+        adapter =  CallAdapter(requireContext(),callList)
 
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -79,7 +73,7 @@ class Search : Fragment() {
                     val name = document.data["name"].toString()
                     val phone = document.data["phone"].toString()
                     val profileImage = document.data["profileImage"].toString()
-                    val call = CallInfo(name)
+                    val call = CallInfo(name,phone,profileImage)
                     callList.add(call)
                 }
 //                adapter.updateList(callList)

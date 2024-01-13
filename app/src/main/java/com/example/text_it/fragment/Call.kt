@@ -6,18 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.text_it.R
 import com.example.text_it.adapter.CallAdapter
+import com.example.text_it.dataClass.CallInfo
 import com.google.firebase.firestore.FirebaseFirestore
 
 
-data class CallInfo(val name: String)
+
 
 class Call : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -68,7 +67,7 @@ class Call : Fragment() {
                     val name = document.data["name"].toString()
                     val phone = document.data["phone"].toString()
                     val profileImage = document.data["profileImage"].toString()
-                    val call = CallInfo(name)
+                    val call = CallInfo(name,phone,profileImage)
                     callList.add(call)
                 }
                 adapter.notifyDataSetChanged()
@@ -79,25 +78,3 @@ class Call : Fragment() {
     }
 }
 
-class CallAdapter(private val callList: List<CallInfo>) :
-RecyclerView.Adapter<CallAdapter.CallViewHolder>() {
-
-    class CallViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewName: TextView = itemView.findViewById(R.id.textViewName)
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CallViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_call_item, parent, false)
-        return CallViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: CallViewHolder, position: Int) {
-        val call = callList[position]
-        holder.textViewName.text = call.name
-    }
-
-    override fun getItemCount(): Int {
-        return callList.size
-    }
-}

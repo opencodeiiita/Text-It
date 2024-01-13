@@ -12,7 +12,7 @@ import com.example.text_it.R
 import com.example.text_it.dataClass.CallInfo
 import com.google.android.material.imageview.ShapeableImageView
 
-class CallAdapter(private val context: Context,private val callList: List<CallInfo>) : RecyclerView.Adapter<CallAdapter.CallViewHolder>() {
+class CallAdapter(private val context: Context, private val callList: MutableList<CallInfo>) : RecyclerView.Adapter<CallAdapter.CallViewHolder>() {
 
     // ViewHolder class to hold references to the views
     class CallViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
